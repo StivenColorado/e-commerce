@@ -29,7 +29,7 @@ class ProductFactory extends Factory
         ];
     }
     public function configure(){
-        // despues de crear un autor, traerlo de la db y agregarle 8 libros a dicho autor
+        // despues de crear un autor, traerlo de la db y agregarle 8 productos a dicho autor
         return $this->afterCreating(function (Product $product){
             $file = new File(['route'=> '/storage/images/products/default.png']);
             $product->file()->save($file);

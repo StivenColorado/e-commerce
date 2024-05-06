@@ -36,7 +36,7 @@
             </thead>
             <tbody>
               <tr
-                v-for="(prouduct, index) in prouducts"
+                v-for="(prouduct, index) in products"
                 :key="index"
                 class="bg-custom-row"
                 style="height: 3em"
@@ -88,7 +88,7 @@ export default {
   components: {
     prouductModal,
   },
-  props: ["prouducts", "authors_data"],
+  props: ["products", "authors_data"],
   data() {
     return {
       modal: null,
@@ -114,7 +114,7 @@ export default {
     async deletprouduct({ id }) {
       if (!(await deleteMessage())) return;
       try {
-        await axios.delete(`/prouducts/${id}`);
+        await axios.delete(`/products/${id}`);
         await successMessage({ is_delete: true, reload: true });
       } catch (error) {
         console.error(error);

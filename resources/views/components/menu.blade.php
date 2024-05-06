@@ -50,7 +50,7 @@
                                 {{-- Product --}}
                                 <a class="dropdown-item text-white" href="{{ route('products.index') }}">
                                     <x-icons.saveIcon/>
-                                    Libros
+                                    productos
                                 </a>
                             @endrole
                             @can('categories.index')
