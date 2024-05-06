@@ -1,0 +1,100 @@
+// Fonts
+@import url("https://fonts.bunny.net/css?family=Nunito");
+
+// Variables
+@import "variables";
+
+// Bootstrap
+@import "bootstrap/scss/bootstrap";
+
+// Icons
+@import "~/@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~/@fortawesome/fontawesome-free/scss/solid";
+
+// Datatable
+@import "~/datatables.net-bs5/css/dataTables.bootstrap5.min";
+
+// Vue select
+@import "vue-select/dist/vue-select.css";
+
+@import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Jersey+25+Charted&family=Poetsen+One&display=swap");
+
+// variables
+:root {
+  --white: white;
+  --black: black;
+  --green-btn: rgb(63, 168, 117);
+  --bg-dark: rgb(58, 56, 56);
+  --bg-row-table: rgba(89, 89, 91, 0.836);
+  --bg-table: rgba(58, 58, 59, 0.711);
+  --gray-custom: #2e2e2e; //inputs
+  --gray-custom-dark: #262424; //inputs
+}
+
+.card_size {
+  width: 18rem;
+}
+.bg-custom-table {
+  background-color: var(--bg-table) !important;
+}
+.bg-custom-row:nth-child(2n + 1) {
+  background-color: var(--bg-row-table);
+  border-collapse: separate; /* Add this line */
+}
+.item-menu{
+    :hover{
+        background-color: var(--bg-table);
+    }
+}
+// custom buttons
+.btn-custom {
+  border: var(--white);
+  background-color: var(--green-btn);
+  color: var(--white);
+  &:hover {
+    filter: brightness(1px);
+    svg,
+    span {
+      transition: 0.5s;
+      transform: translateY(-2px);
+    }
+  }
+}
+.bg-dark {
+  background-color: var(--bg-dark);
+}
+.bg-table {
+  background-color: var(--bg-table);
+  color: var(--white);
+}
+.text-white {
+  color: var(--white);
+}
+
+.custom-btn-dark {
+  background-color: var(--gray-custom);
+  color: var(--white);
+  select {
+    background-color: var(--gray-custom);
+    option {
+      background-color: var(--gray-custom);
+    }
+  }
+  input[type="file"] {
+    background-color: var(--gray-custom);
+  }
+  :focus {
+    background-color: var(--gray-custom);
+  }
+  ::placeholder {
+    color: var(--white);
+  }
+}
+
+body {
+  color: var(--white);
+  background-color: var(--bg-dark) !important;
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
