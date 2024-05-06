@@ -9,7 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     {{-- Title --}}
-    <title>{{ env('APP_NAME') }} | {{ $title ?? 'Libros' }}</title>
+    <title>{{ env('APP_NAME') }} | {{ $title ?? 'productos' }}</title>
     <link rel="stylesheet" href={{ asset('css/main.css') }}>
 
     <!-- Scripts -->

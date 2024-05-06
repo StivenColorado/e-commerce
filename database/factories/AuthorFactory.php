@@ -19,7 +19,7 @@ class AuthorFactory extends Factory
 
     //metodo de factory
     public function configure(){
-        // despues de crear un autor, traerlo de la db y agregarle 8 libros a dicho autor
+        // despues de crear un autor, traerlo de la db y agregarle 8 productos a dicho autor
         return $this->afterCreating(function (Author $author){
             Product::factory(8)->authorId($author)->create();
         });
