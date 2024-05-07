@@ -15,6 +15,7 @@ return new class extends Migration
             $table->bigInteger('supplier_id')->unsigned();
             $table->string('title');
             $table->integer('stock');
+            $table->float('price')->nullable();
             $table->text('description')->nullable();
             $table->timestamps();
             $table->softDeletes();
