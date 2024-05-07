@@ -22,6 +22,8 @@
 // variables
 :root {
   --white: white;
+  --red:red;
+  --yellow:yellow;
   --black: black;
   --green-btn: rgb(63, 168, 117);
   --bg-dark: rgb(58, 56, 56);
@@ -70,7 +72,63 @@
 .text-white {
   color: var(--white);
 }
+.text-red {
+    color: var(--red);
+  }
+  .text-yellow {
+    color: var(--yellow);
+  }
+.vs__selected-options , .vs__dropdown-toggle , .vs__search , .vs__selected{
+    background-color: var(--bg-dark);
+    color: var(--white);
+}
+/* Estilo para el input de búsqueda */
+.dataTables_wrapper .dataTables_filter input {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 5px;
+    background-color: var(--bg-dark);
+    color: var(--white);
+}
+/* Estilo para el paginador */
+.dataTables_wrapper .dataTables_paginate {
+    background-color: var(--bg-dark);
+    margin-top: 10px;
+    text-align: center;
+}
 
+/* Estilo para los botones de paginación */
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    background-color: var(--bg-dark);
+    color: var(--white);
+    border: none;
+    padding: 5px 10px;
+    margin: 0 2px;
+    border-radius: 3px;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+    background-color: var(--bg-table); /* Ejemplo de color de fondo diferente para el botón activo */
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled {
+    opacity: 0.5;
+    cursor: not-allowed; /* Cambiar el cursor a 'no permitido' */
+    background-color: var(--bg-dark);
+}
+.paginate_button a{
+    background-color: var(--bg-dark);
+    color: var(--white);
+}
+/*texto "Buscar" al lado del input */
+.dataTables_wrapper .dataTables_filter label {
+    /* Tus estilos personalizados */
+    font-weight: bold;
+}
+
+.form-select{
+    color: var(--white);
+    background-color: var(--bg-dark);
+}
 .custom-btn-dark {
   background-color: var(--gray-custom);
   color: var(--white);

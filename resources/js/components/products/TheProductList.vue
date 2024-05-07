@@ -19,10 +19,10 @@
             <path d="M18 7v14l-6 -4l-6 4v-14a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4z" />
           </svg>
 
-          <span> Crear libro </span>
+          <span> Crear producto </span>
         </button>
       </div>
-      <div class="card-body bg-table" >
+      <div class="card-body bg-table">
         <div class="table-responsive my-4 mx-2">
           <table class="col-12 bg-table" id="product_table">
             <thead style="height: 3em">
@@ -49,14 +49,16 @@
                   <div class="d-flex justify-content-center" title="Editar">
                     <button
                       type="button"
-                      class="btn btn-warning btn-sm"
+                      class="btn text-yellow btn-sm"
                       @click="editproduct(product)"
+                      :title="'Editar producto con ID: ' + product.id"
                     >
                       <i class="fas fa-pencil-alt"></i>
                     </button>
+
                     <button
                       type="button"
-                      class="btn btn-danger btn-sm ms-2"
+                      class="btn text-red btn-sm ms-2"
                       title="Eliminar"
                       @click="deletproduct(product)"
                     >

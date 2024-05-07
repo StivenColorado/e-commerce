@@ -12,7 +12,7 @@
       <div class="modal-content">
         <div class="modal-header bg-dark">
           <h5 class="modal-title">
-            {{ is_create ? "Crear" : "Editar" }} libro
+            {{ is_create ? "Crear" : "Editar" }} producto
           </h5>
           <button
             type="button"
@@ -37,7 +37,7 @@
               <div class="col-12 d-flex justify-content-center mt-1">
                 <img
                   :src="image_preview"
-                  alt="Imagen Libro"
+                  alt="Imagen producto"
                   class="img-thumbnail"
                   width="170"
                   height="170"
