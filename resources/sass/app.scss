@@ -22,8 +22,8 @@
 // variables
 :root {
   --white: white;
-  --red:red;
-  --yellow:yellow;
+  --red: red;
+  --yellow: yellow;
   --black: black;
   --green-btn: rgb(63, 168, 117);
   --bg-dark: rgb(58, 56, 56);
@@ -31,6 +31,7 @@
   --bg-table: rgba(58, 58, 59, 0.711);
   --gray-custom: #2e2e2e; //inputs
   --gray-custom-dark: #262424; //inputs
+  --bg-input: rgb(58, 58, 58);
 }
 
 .card_size {
@@ -43,10 +44,10 @@
   background-color: var(--bg-row-table);
   border-collapse: separate; /* Add this line */
 }
-.item-menu{
-    :hover{
-        background-color: var(--bg-table);
-    }
+.item-menu {
+  :hover {
+    background-color: var(--bg-table);
+  }
 }
 // custom buttons
 .btn-custom {
@@ -73,61 +74,91 @@
   color: var(--white);
 }
 .text-red {
-    color: var(--red);
+  color: var(--red);
+}
+.text-yellow {
+  color: var(--yellow);
+}
+.bg-input {
+  background-color: var(--bg-input);
+  color: var(--white);
+
+  // Estilos para cuando se aplica el autocompletado en WebKit
+  &:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+    background-color: var(--bg-input);
+    -webkit-text-fill-color: #000; // Color del texto en el autocompletado
   }
-  .text-yellow {
-    color: var(--yellow);
+
+  &:hover:-webkit-autofill,
+  &:focus:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+    background-color: var(--bg-input);
   }
-.vs__selected-options , .vs__dropdown-toggle , .vs__search , .vs__selected{
-    background-color: var(--bg-dark);
-    color: var(--white);
+}
+
+.bg-input::placeholder {
+  background-color: var(--bg-input);
+  color: var(--white);
+}
+
+//   editando datatables de vue
+
+.vs__selected-options,
+.vs__dropdown-toggle,
+.vs__search,
+.vs__selected {
+  background-color: var(--bg-dark);
+  color: var(--white);
 }
 /* Estilo para el input de búsqueda */
 .dataTables_wrapper .dataTables_filter input {
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    padding: 5px;
-    background-color: var(--bg-dark);
-    color: var(--white);
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 5px;
+  background-color: var(--bg-dark);
+  color: var(--white);
 }
 /* Estilo para el paginador */
 .dataTables_wrapper .dataTables_paginate {
-    background-color: var(--bg-dark);
-    margin-top: 10px;
-    text-align: center;
+  background-color: var(--bg-dark);
+  margin-top: 10px;
+  text-align: center;
 }
 
 /* Estilo para los botones de paginación */
 .dataTables_wrapper .dataTables_paginate .paginate_button {
-    background-color: var(--bg-dark);
-    color: var(--white);
-    border: none;
-    padding: 5px 10px;
-    margin: 0 2px;
-    border-radius: 3px;
+  background-color: var(--bg-dark);
+  color: var(--white);
+  border: none;
+  padding: 5px 10px;
+  margin: 0 2px;
+  border-radius: 3px;
 }
 
+/* Ejemplo de color de fondo diferente para el botón activo */
 .dataTables_wrapper .dataTables_paginate .paginate_button.current {
-    background-color: var(--bg-table); /* Ejemplo de color de fondo diferente para el botón activo */
+  background-color: var(--bg-table);
 }
 .dataTables_wrapper .dataTables_paginate .paginate_button.disabled {
-    opacity: 0.5;
-    cursor: not-allowed; /* Cambiar el cursor a 'no permitido' */
-    background-color: var(--bg-dark);
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: var(--bg-dark);
 }
-.paginate_button a{
-    background-color: var(--bg-dark);
-    color: var(--white);
+.paginate_button a {
+  background-color: var(--bg-dark);
+  color: var(--white);
 }
 /*texto "Buscar" al lado del input */
 .dataTables_wrapper .dataTables_filter label {
-    /* Tus estilos personalizados */
-    font-weight: bold;
+  font-weight: bold;
 }
 
-.form-select{
-    color: var(--white);
-    background-color: var(--bg-dark);
+// input y select de formularios
+
+.form-select {
+  color: var(--white);
+  background-color: var(--bg-dark);
 }
 .custom-btn-dark {
   background-color: var(--gray-custom);
