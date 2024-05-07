@@ -7,7 +7,7 @@
                     <div class="small mb-1">${{ $product->created_at }}</div>
                     <h1 class="display-5 fw-bolder">${{ $product->title }}</h1>
                     <div class="fs-5 mb-5">
-                        <span class="text-decoration-line-through"><small class="text-red fs-6">${{ $product->formatted_price }}</small></span>
+                        <span class="text-decoration-line-through"><small class="text-red fs-6">${{ $product->discount }}</small></span>
                         <span class="m-2">{{$product->formatted_price}}</span>
                     </div>
                     <p class="lead">

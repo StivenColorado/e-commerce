@@ -40,6 +40,10 @@ class Product extends Model
         return '$' . number_format($this->price, 0, ',', '.');
     }
 
+    public function getDiscountAttribute(){
+        return $this->price + rand(20000,100000);
+    }
+
     public function category()
     {
         return $this->belongsTo(Category::class, 'category_id', 'id');

@@ -3,11 +3,12 @@
 
         <a class="navbar-brand" href="{{ url('/') }}">{{ env('APP_NAME') }}</a>
         <form class="d-flex" role="search" class="bg-input">
-            <input class="form-control text-white bg-input me-2" style="background:rgb(58, 58, 58);" type="search" placeholder="Search" aria-label="Search">
+            <input class="form-control text-white bg-input me-2" style="background:rgb(58, 58, 58);" type="search"
+                placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success" type="submit">
-                <x-icons.searchicon/>
+                <x-icons.searchicon />
             </button>
-          </form>
+        </form>
 
         {{-- Haburguesa --}}
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -41,6 +42,12 @@
                             </a>
                         </li>
                     @endif
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('shopping.index') }}">
+                            <x-icons.carticon />
+                            Carrito
+                        </a>
+                    </li>
                 @else
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"

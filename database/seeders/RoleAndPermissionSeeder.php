@@ -36,7 +36,7 @@ class RoleAndPermissionSeeder extends Seeder
 
 		// Roles
 		$admin = Role::create(['name' => 'admin']);
-		$librarian = Role::create(['name' => 'librarian']);
+		// $librarian = Role::create(['name' => 'librarian']);
 		Role::create(['name' => 'user']);
 
 		foreach ($permissionsAdmin as $permission) {
@@ -45,7 +45,7 @@ class RoleAndPermissionSeeder extends Seeder
 		}
 		foreach ($permissionsLibrarian as $permission) {
 			$permission = Permission::where(['name' => $permission])->first();
-			$librarian->givePermissionTo($permission);
+			// $librarian->givePermissionTo($permission);
 		}
 	}
 }
