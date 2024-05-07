@@ -13,7 +13,7 @@
                     <p class="card-text">{{ $product->format_description }}</p>
                     <div class="d-flex flex-wrap">
                         <span class="w-100">
-                            <strong>Autor: </strong> {{ $product->author->name }}
+                            <strong>Autor: </strong> {{ $product->supplier->name }}
                         </span>
                         <span class="mt-2">
                             <strong>Categoria: </strong> {{ $product->category->name }}

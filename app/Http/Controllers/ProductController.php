@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
-use App\Models\Author;
+use App\Models\Supplier;
 use App\Http\Traits\UploadFile;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\Product\ProductRequest;
@@ -15,15 +15,15 @@ class ProductController extends Controller
 
 	public function home()
 	{
-		$products = Product::with('author', 'category', 'file')->whereHas('category')->where('stock','>',0)->get();
+		$products = Product::with('supplier', 'category', 'file')->whereHas('category')->where('stock','>',0)->get();
 		return view('index', compact('products'));
 	}
 
 	public function index()
 	{
-		$authors = Author::get();
-		$products = Product::with('author', 'category', 'file')->get();
-		return view('products.index', compact('products', 'authors'));
+		$suppliers = Supplier::get();
+		$products = Product::with('supplier', 'category', 'file')->get();
+		return view('products.index', compact('products', 'suppliers'));
 	}
 
 

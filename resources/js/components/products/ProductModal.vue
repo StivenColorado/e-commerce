@@ -128,20 +128,20 @@
                 </Field>
               </div>
 
-              <!-- Author -->
+              <!-- supplier -->
               <div class="col-12 mt-2">
                 <Field
-                  name="author"
+                  name="supplier"
                   v-slot="{ errorMessage, field }"
-                  v-model="author"
+                  v-model="supplier"
                 >
-                  <label for="author">Autor</label>
+                  <label for="supplier">Autor</label>
 
                   <v-select
-                    :options="authors_data"
+                    :options="suppliers_data"
                     label="name"
-                    v-model="author"
-                    :reduce="(author) => author.id"
+                    v-model="supplier"
+                    :reduce="(supplier) => supplier.id"
                     v-bind="field"
                     placeholder="Seleccione autor"
                     :clearable="false"
@@ -208,14 +208,14 @@ import { successMessage, handlerErrors } from "../../helpers/Alerts";
 import backendError from "../Components/BackendError.vue";
 
 export default {
-  props: ["authors_data", "product_data"],
+  props: ["suppliers_data", "product_data"],
   components: { Field, Form, backendError },
   watch: {
     product_data(new_value) {
       this.product = { ...new_value };
       if (!this.product.id) return;
       this.is_create = false;
-      this.author = this.product.author_id;
+      this.supplier = this.product.supplier_id;
       this.category = this.product.category_id;
       this.image_preview = this.product.file.route;
     },
@@ -226,7 +226,7 @@ export default {
         title: yup.string().required(),
         stock: yup.number().required().positive().integer(),
         description: yup.string(),
-        author: yup.string().required(),
+        supplier: yup.string().required(),
         category: yup.string().required(),
       });
     },
@@ -235,7 +235,7 @@ export default {
     return {
       is_create: true,
       product: {},
-      author: null,
+      supplier: null,
       category: null,
       categories_data: [],
       load_category: false,
@@ -259,7 +259,7 @@ export default {
     async saveproduct() {
       try {
         this.product.category_id = this.category;
-        this.product.author_id = this.author;
+        this.product.supplier_id = this.supplier;
         const product = this.createFormData(this.product);
         if (this.is_create) await axios.post("/products/store", product);
         else await axios.post(`/products/update/${this.product.id}`, product);
@@ -290,7 +290,7 @@ export default {
     reset() {
       this.is_create = true;
       this.product = {};
-      this.author = null;
+      this.supplier = null;
       this.category = null;
       this.$parent.product = {};
       this.back_errors = {};

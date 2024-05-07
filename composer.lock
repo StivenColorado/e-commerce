@@ -96,7 +96,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "KyleKatarn",
                     "email": "kylekatarnls@gmail.com"
@@ -169,7 +169,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Dragonfly Development Inc.",
                     "email": "info@dflydev.com",
@@ -287,7 +287,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Guilherme Blanco",
                     "email": "guilhermeblanco@gmail.com"
@@ -378,7 +378,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Guilherme Blanco",
                     "email": "guilhermeblanco@gmail.com"
@@ -458,7 +458,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Chris Tankersley",
                     "email": "chris@ctankersley.com",
@@ -523,7 +523,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Eduardo Gulias Davis"
                 }
@@ -587,7 +587,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Fruitcake",
                     "homepage": "https://fruitcake.nl"
@@ -651,7 +651,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Graham Campbell",
                     "email": "hello@gjcampbell.co.uk",
@@ -739,7 +739,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Graham Campbell",
                     "email": "hello@gjcampbell.co.uk",
@@ -845,7 +845,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Graham Campbell",
                     "email": "hello@gjcampbell.co.uk",
@@ -939,7 +939,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Graham Campbell",
                     "email": "hello@gjcampbell.co.uk",
@@ -1046,7 +1046,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Graham Campbell",
                     "email": "hello@gjcampbell.co.uk",
@@ -1273,7 +1273,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Taylor Otwell",
                     "email": "taylor@laravel.com"
@@ -1339,7 +1339,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Taylor Otwell",
                     "email": "taylor@laravel.com"
@@ -1395,7 +1395,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Taylor Otwell",
                     "email": "taylor@laravel.com"
@@ -1464,7 +1464,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Taylor Otwell",
                     "email": "taylor@laravel.com"
@@ -1530,7 +1530,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Taylor Otwell",
                     "email": "taylor@laravel.com"
@@ -1600,7 +1600,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Adam Engebretson",
                     "email": "adam@laravelcollective.com"
@@ -1678,7 +1678,7 @@
             "license": [
                 "BSD-3-Clause"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Colin O'Dell",
                     "email": "colinodell@gmail.com",
@@ -1766,7 +1766,7 @@
             "license": [
                 "BSD-3-Clause"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Colin O'Dell",
                     "email": "colinodell@gmail.com",
@@ -1861,7 +1861,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Frank de Jonge",
                     "email": "info@frankdejonge.nl"
@@ -1927,7 +1927,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Frank de Jonge",
                     "email": "info@frankdejonge.nl"
@@ -2004,7 +2004,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Phil Sturgeon",
                     "email": "me@philsturgeon.uk",
@@ -2059,7 +2059,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Frank de Jonge",
                     "email": "info@frankdejonge.nl"
@@ -2154,7 +2154,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Jordi Boggiano",
                     "email": "j.boggiano@seld.be",
@@ -2252,7 +2252,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Brian Nesbitt",
                     "email": "brian@nesbot.com",
@@ -2331,7 +2331,7 @@
                 "GPL-2.0-only",
                 "GPL-3.0-only"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "David Grudl",
                     "homepage": "https://davidgrudl.com"
@@ -2405,7 +2405,7 @@
                 "GPL-2.0-only",
                 "GPL-3.0-only"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "David Grudl",
                     "homepage": "https://davidgrudl.com"
@@ -2481,7 +2481,7 @@
             "license": [
                 "BSD-3-Clause"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Nikita Popov"
                 }
@@ -2548,7 +2548,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Nuno Maduro",
                     "email": "enunomaduro@gmail.com"
@@ -2623,7 +2623,7 @@
             "license": [
                 "Apache-2.0"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
@@ -2685,7 +2685,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "PHP-FIG",
                     "homepage": "https://www.php-fig.org/"
@@ -2738,7 +2738,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "PHP-FIG",
                     "homepage": "https://www.php-fig.org/"
@@ -2791,7 +2791,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "PHP-FIG",
                     "homepage": "http://www.php-fig.org/"
@@ -2842,7 +2842,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "PHP-FIG",
                     "homepage": "https://www.php-fig.org/"
@@ -2894,7 +2894,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "PHP-FIG",
                     "homepage": "https://www.php-fig.org/"
@@ -2948,7 +2948,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "PHP-FIG",
                     "homepage": "https://www.php-fig.org/"
@@ -3001,7 +3001,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "PHP-FIG",
                     "homepage": "https://www.php-fig.org/"
@@ -3051,7 +3051,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "PHP-FIG",
                     "homepage": "https://www.php-fig.org/"
@@ -3128,7 +3128,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Justin Hileman",
                     "email": "justin@justinhileman.info",
@@ -3180,7 +3180,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Ralph Khattar",
                     "email": "ralph.khattar@gmail.com"
@@ -3251,7 +3251,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Ben Ramsey",
                     "email": "ben@benramsey.com",
@@ -3425,7 +3425,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Freek Van der Herten",
                     "email": "freek@spatie.be",
@@ -3515,7 +3515,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Fabien Potencier",
                     "email": "fabien@symfony.com"
@@ -3582,7 +3582,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Fabien Potencier",
                     "email": "fabien@symfony.com"
@@ -3653,7 +3653,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Nicolas Grekas",
                     "email": "p@tchwork.com"
@@ -3724,7 +3724,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Fabien Potencier",
                     "email": "fabien@symfony.com"
@@ -3807,7 +3807,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Fabien Potencier",
                     "email": "fabien@symfony.com"
@@ -3878,7 +3878,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Nicolas Grekas",
                     "email": "p@tchwork.com"
@@ -3947,7 +3947,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Fabien Potencier",
                     "email": "fabien@symfony.com"
@@ -4022,7 +4022,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Fabien Potencier",
                     "email": "fabien@symfony.com"
@@ -4131,7 +4131,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Fabien Potencier",
                     "email": "fabien@symfony.com"
@@ -4205,7 +4205,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Fabien Potencier",
                     "email": "fabien@symfony.com"
@@ -4283,7 +4283,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Fabien Potencier",
                     "email": "fabien@symfony.com"
@@ -4360,7 +4360,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Gert de Pagter",
                     "email": "BackEndTea@gmail.com"
@@ -4436,7 +4436,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Nicolas Grekas",
                     "email": "p@tchwork.com"
@@ -4516,7 +4516,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Laurent Bassin",
                     "email": "laurent@bassin.info"
@@ -4601,7 +4601,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Nicolas Grekas",
                     "email": "p@tchwork.com"
@@ -4682,7 +4682,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Nicolas Grekas",
                     "email": "p@tchwork.com"
@@ -4756,7 +4756,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Nicolas Grekas",
                     "email": "p@tchwork.com"
@@ -4832,7 +4832,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Ion Bazan",
                     "email": "ion.bazan@gmail.com"
@@ -4912,7 +4912,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Nicolas Grekas",
                     "email": "p@tchwork.com"
@@ -4991,7 +4991,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Grégoire Pineau",
                     "email": "lyrixx@lyrixx.info"
@@ -5058,7 +5058,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Fabien Potencier",
                     "email": "fabien@symfony.com"
@@ -5140,7 +5140,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Fabien Potencier",
                     "email": "fabien@symfony.com"
@@ -5220,7 +5220,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Nicolas Grekas",
                     "email": "p@tchwork.com"
@@ -5305,7 +5305,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Nicolas Grekas",
                     "email": "p@tchwork.com"
@@ -5408,7 +5408,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Fabien Potencier",
                     "email": "fabien@symfony.com"
@@ -5478,7 +5478,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Nicolas Grekas",
                     "email": "p@tchwork.com"
@@ -5551,7 +5551,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Grégoire Pineau",
                     "email": "lyrixx@lyrixx.info"
@@ -5644,7 +5644,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Nicolas Grekas",
                     "email": "p@tchwork.com"
@@ -5717,7 +5717,7 @@
             "license": [
                 "BSD-3-Clause"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Tijs Verkoyen",
                     "email": "css_to_inline_styles@verkoyen.eu",
@@ -5782,7 +5782,7 @@
             "license": [
                 "BSD-3-Clause"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Graham Campbell",
                     "email": "hello@gjcampbell.co.uk",
@@ -5849,7 +5849,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Lars Moelleken",
                     "homepage": "http://www.moelleken.org/"
@@ -5930,7 +5930,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Bernhard Schussek",
                     "email": "bschussek@gmail.com"
@@ -5980,7 +5980,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Arjay Angeles",
                     "email": "aqangeles@gmail.com"
@@ -6051,7 +6051,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Arjay Angeles",
                     "email": "aqangeles@gmail.com"
@@ -6128,7 +6128,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Arjay Angeles",
                     "email": "aqangeles@gmail.com"
@@ -6206,7 +6206,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Arjay Angeles",
                     "email": "aqangeles@gmail.com"
@@ -6269,7 +6269,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Arjay Angeles",
                     "email": "aqangeles@gmail.com"
@@ -6366,7 +6366,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Arjay Angeles",
                     "email": "aqangeles@gmail.com"
@@ -6429,7 +6429,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Marco Pivetta",
                     "email": "ocramius@gmail.com",
@@ -6508,7 +6508,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "François Zaninotto"
                 }
@@ -6567,7 +6567,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Filipe Dobreira",
                     "homepage": "https://github.com/filp",
@@ -6692,7 +6692,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Nuno Maduro",
                     "email": "enunomaduro@gmail.com"
@@ -6759,7 +6759,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Taylor Otwell",
                     "email": "taylor@laravel.com"
@@ -6816,12 +6816,12 @@
             "license": [
                 "BSD-3-Clause"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Pádraic Brady",
                     "email": "padraic.brady@gmail.com",
                     "homepage": "https://github.com/padraic",
-                    "role": "Author"
+                    "role": "Suppliers"
                 },
                 {
                     "name": "Dave Marshall",
@@ -6967,7 +6967,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Nuno Maduro",
                     "email": "enunomaduro@gmail.com"
@@ -7043,7 +7043,7 @@
             "license": [
                 "BSD-3-Clause"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Arne Blankerts",
                     "email": "arne@blankerts.de",
@@ -7100,7 +7100,7 @@
             "license": [
                 "BSD-3-Clause"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Arne Blankerts",
                     "email": "arne@blankerts.de",
@@ -7175,7 +7175,7 @@
             "license": [
                 "BSD-3-Clause"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Sebastian Bergmann",
                     "email": "sebastian@phpunit.de",
@@ -7237,7 +7237,7 @@
             "license": [
                 "BSD-3-Clause"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Sebastian Bergmann",
                     "email": "sebastian@phpunit.de",
@@ -7301,7 +7301,7 @@
             "license": [
                 "BSD-3-Clause"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Sebastian Bergmann",
                     "email": "sebastian@phpunit.de",
@@ -7360,7 +7360,7 @@
             "license": [
                 "BSD-3-Clause"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Sebastian Bergmann",
                     "email": "sebastian@phpunit.de",
@@ -7419,7 +7419,7 @@
             "license": [
                 "BSD-3-Clause"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Sebastian Bergmann",
                     "email": "sebastian@phpunit.de",
@@ -7511,7 +7511,7 @@
             "license": [
                 "BSD-3-Clause"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Sebastian Bergmann",
                     "email": "sebastian@phpunit.de",
@@ -7581,7 +7581,7 @@
             "license": [
                 "BSD-3-Clause"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Sebastian Bergmann",
                     "email": "sebastian@phpunit.de",
@@ -7637,7 +7637,7 @@
             "license": [
                 "BSD-3-Clause"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Sebastian Bergmann",
                     "email": "sebastian@phpunit.de",
@@ -7693,7 +7693,7 @@
             "license": [
                 "BSD-3-Clause"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Sebastian Bergmann",
                     "email": "sebastian@phpunit.de"
@@ -7750,7 +7750,7 @@
             "license": [
                 "BSD-3-Clause"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Sebastian Bergmann",
                     "email": "sebastian@phpunit.de"
@@ -7823,7 +7823,7 @@
             "license": [
                 "BSD-3-Clause"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Sebastian Bergmann",
                     "email": "sebastian@phpunit.de",
@@ -7880,7 +7880,7 @@
             "license": [
                 "BSD-3-Clause"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Sebastian Bergmann",
                     "email": "sebastian@phpunit.de"
@@ -7948,7 +7948,7 @@
             "license": [
                 "BSD-3-Clause"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Sebastian Bergmann",
                     "email": "sebastian@phpunit.de"
@@ -8010,7 +8010,7 @@
             "license": [
                 "BSD-3-Clause"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Sebastian Bergmann",
                     "email": "sebastian@phpunit.de"
@@ -8091,7 +8091,7 @@
             "license": [
                 "BSD-3-Clause"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Sebastian Bergmann",
                     "email": "sebastian@phpunit.de"
@@ -8150,7 +8150,7 @@
             "license": [
                 "BSD-3-Clause"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Sebastian Bergmann",
                     "email": "sebastian@phpunit.de",
@@ -8208,7 +8208,7 @@
             "license": [
                 "BSD-3-Clause"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Sebastian Bergmann",
                     "email": "sebastian@phpunit.de"
@@ -8263,7 +8263,7 @@
             "license": [
                 "BSD-3-Clause"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Sebastian Bergmann",
                     "email": "sebastian@phpunit.de"
@@ -8318,7 +8318,7 @@
             "license": [
                 "BSD-3-Clause"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Sebastian Bergmann",
                     "email": "sebastian@phpunit.de"
@@ -8381,7 +8381,7 @@
             "license": [
                 "BSD-3-Clause"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Sebastian Bergmann",
                     "email": "sebastian@phpunit.de"
@@ -8435,7 +8435,7 @@
             "license": [
                 "BSD-3-Clause"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Sebastian Bergmann",
                     "email": "sebastian@phpunit.de",
@@ -8488,7 +8488,7 @@
             "license": [
                 "BSD-3-Clause"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Sebastian Bergmann",
                     "email": "sebastian@phpunit.de",
@@ -8542,7 +8542,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Freek Van de Herten",
                     "email": "freek@spatie.be",
@@ -8694,7 +8694,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Spatie",
                     "email": "info@spatie.be",
@@ -8784,7 +8784,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Spatie",
                     "email": "info@spatie.be",
@@ -8856,7 +8856,7 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Fabien Potencier",
                     "email": "fabien@symfony.com"
@@ -8917,7 +8917,7 @@
             "license": [
                 "BSD-3-Clause"
             ],
-            "authors": [
+            "suppliers": [
                 {
                     "name": "Arne Blankerts",
                     "email": "arne@blankerts.de",
