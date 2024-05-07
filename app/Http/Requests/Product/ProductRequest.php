@@ -23,7 +23,7 @@ class ProductRequest extends FormRequest
 
 	public function rules()
 	{
-		return  $this->rules;
+		return $this->rules;
 	}
 
 	public function messages()

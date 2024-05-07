@@ -6,12 +6,10 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class UserRequest extends FormRequest
 {
-
 	public function authorize()
 	{
 		return true;
 	}
-
 
 	public function rules()
 	{
@@ -34,7 +32,8 @@ class UserRequest extends FormRequest
 		}
 
 		if ($this->path() != 'api/register') {
-			$rules['role'] = ['required', 'string', 'in:user,admin,librarian'];
+			$rules['role'] = ['required', 'string', 'in:user,admin'];
+			// $rules['role'] = ['required', 'string', 'in:user,admin,librarian'];
 		}
 
 		return $rules;
