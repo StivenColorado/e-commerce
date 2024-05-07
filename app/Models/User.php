@@ -62,4 +62,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(Lend::class, 'owner_user_id', 'id');
     }
+    public function shoppingCarts()
+    {
+        return $this->hasMany(ShoppingCart::class, 'id_user', 'id');
+    }
 }

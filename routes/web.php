@@ -6,13 +6,16 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ShowController;
+use App\Http\Controllers\ShoppingCartController;
 
 Auth::routes();
 Route::get('/', [ProductController::class, 'home'])->name('products.home');
+Route::get('/show/{id}', [ShowController::class, 'index'])->name('show.index');
 
 Route::group(['middleware' => ['auth']], function () {
 	Route::get('/home', [HomeController::class, 'index'])->name('home');
-
+	Route::get('/shopping/', [ShoppingCartController::class, 'index'])->name('shopping.index');
 	// Users
 	Route::group(['prefix' => 'users', 'middleware' => ['role:admin'], 'controller' => UserController::class], function () {
 		Route::get('/', 'index')->name('users.index')->middleware('can:users.index');

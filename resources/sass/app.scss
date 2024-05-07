@@ -25,6 +25,7 @@
   --red: red;
   --yellow: yellow;
   --black: black;
+  --green: green;
   --green-btn: rgb(63, 168, 117);
   --bg-dark: rgb(58, 56, 56);
   --bg-row-table: rgba(89, 89, 91, 0.836);
@@ -32,10 +33,12 @@
   --gray-custom: #2e2e2e; //inputs
   --gray-custom-dark: #262424; //inputs
   --bg-input: rgb(58, 58, 58);
+  --hover-card: rgb(72, 70, 70);
 }
 
 .card_size {
-  width: 20rem;
+  width: 14rem;
+  cursor: pointer;
 }
 .bg-custom-table {
   background-color: var(--bg-table) !important;
@@ -76,6 +79,9 @@
 .text-red {
   color: var(--red);
 }
+.text-green {
+  color: var(--green);
+}
 .text-yellow {
   color: var(--yellow);
 }
@@ -100,6 +106,14 @@
 .bg-input::placeholder {
   background-color: var(--bg-input);
   color: var(--white);
+}
+
+.hover-card{
+    &:hover{
+        background-color: var(--hover-card);
+        border:solid 1px rgb(96, 95, 95);
+        box-sizing: border-box;
+    }
 }
 
 //   editando datatables de vue
