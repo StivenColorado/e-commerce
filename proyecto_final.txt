@@ -1,0 +1,26 @@
+por categoría en el home solo se mostraran 5 productos,
+si una categoría no tiene productos no mostrar las categorias
+
+debe de haber una pagina que muestren todos los productos
+
+al presionar un producto debe de estar la imagen del producto, el nombre, el precio, la descripción, 
+el stock y botón de agregar al carrito,
+(Si al presionar al carrito no esta logueado debe loguearse)
+
+---RETO (obligatorio)
+debe de haber un carrito de compras
+resumen de compra (total)
+-el carrito es único para cada cliente
+
+
+hacer un buscador en el home o en la vista donde se muestran los productos
+
+- si se agrega al carrito y ya había estado en el carrito de compras se debe de agregar 1 cantidad de dicho producto
+
+ROL ADMINISTRADOR
+CRUD CATEGORIAS
+CRUD USUARIOS
+CRUD PRODUCTOS (imganes, nombres, descripción, precios, stock)
+
+
+se revisa el 14 de mayo
