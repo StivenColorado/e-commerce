@@ -20,7 +20,7 @@ class ProductController extends Controller
         // Obtener todas las categorías
         $categories = Category::all();
 
-        // Inicializar un array para almacenar los productos por categoría
+        // almacenar los productos por categoría
         $productsByCategory = [];
 
         // Obtener hasta 5 productos para cada categoría
@@ -31,7 +31,7 @@ class ProductController extends Controller
                         ->limit(5)
                         ->get();
 
-            // Agregar los productos a la matriz de productos por categoría
+            // matriz de productos por categoría
             $productsByCategory[$category->name] = $products;
         }
 

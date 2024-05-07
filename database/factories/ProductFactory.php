@@ -20,12 +20,12 @@ class ProductFactory extends Factory
     }
     public function definition()
     {
-        $price = $this->faker->numberBetween($min = 1500, $max = 6000);
+        $price = $this->faker->numberBetween($min = 25000, $max = 1000000);
         return [
             'category_id' => $this->faker->randomElement([1, 2, 3]),
             'title' => $this->faker->sentence(),
             'stock' => $this->faker->randomDigit(),
-            'price' => $price, // Almacena el precio como un número sin formato
+            'price' => $price,
             'description' => $this->faker->paragraph(),
         ];
     }

@@ -24,7 +24,7 @@ class Product extends Model
         'description',
     ];
 
-    protected $appends = ['format_description','formatted_price'];
+    protected $appends = ['format_description', 'formatted_price'];
     public function formatDescription(): Attribute
     {
         return Attribute::make(
@@ -35,15 +35,11 @@ class Product extends Model
         );
     }
 
-
     public function getFormattedPriceAttribute()
     {
         return '$' . number_format($this->price, 0, ',', '.');
     }
 
-    /*
-		Product::with('category','Supplier')->get();
-	*/
     public function category()
     {
         return $this->belongsTo(Category::class, 'category_id', 'id');
@@ -58,7 +54,14 @@ class Product extends Model
     {
         return $this->hasMany(Lend::class, 'product_id', 'id');
     }
-
+    public function shoppingCarts()
+    {
+        return $this->hasMany(ShoppingCart::class, 'id_product', 'id');
+    }
+    public function shows()
+    {
+        return $this->hasMany(ShoppingCart::class, 'id_product', 'id');
+    }
     public function file()
     {
         return $this->morphOne(File::class, 'fileable');
