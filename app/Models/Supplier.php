@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Author extends Model
+class Supplier extends Model
 {
     use HasFactory, SoftDeletes;
     protected $fillable = [
@@ -15,8 +15,8 @@ class Author extends Model
         'biography',
     ];
 
-    public function Product()
+    public function products()
     {
-        return $this->hasMany(Product::class, 'author_id', 'id');
+        return $this->hasMany(Product::class, 'supplier_id', 'id');
     }
 }

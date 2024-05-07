@@ -10,11 +10,11 @@ class ProductFactory extends Factory
 {
     protected $model = Product::class;
 
-    public function authorId($author)
+    public function supplierId($supplier)
     {
         return $this->state(
             [
-                'author_id' => $author->id
+                'supplier_id' => $supplier->id
             ]
         );
     }
@@ -29,7 +29,7 @@ class ProductFactory extends Factory
         ];
     }
     public function configure(){
-        // despues de crear un autor, traerlo de la db y agregarle 8 productos a dicho autor
+        // despues de crear un proveedor, traerlo de la db y agregarle 8 productos a dicho proveedor
         return $this->afterCreating(function (Product $product){
             $file = new File(['route'=> '/storage/images/products/default.png']);
             $product->file()->save($file);

@@ -8,7 +8,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse navbar-dark" id="navbarSupportedContent" >
+        <div class="collapse navbar-collapse navbar-dark" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav me-auto">
 
@@ -20,6 +20,7 @@
                     @if (Route::has('login'))
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}">
+                                <x-icons.loginicon />
                                 Inicio de sesión
                             </a>
                         </li>
@@ -27,9 +28,18 @@
 
                     @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">Registro</a>
+                            <a class="nav-link" href="{{ route('register') }}">
+                                <x-icons.registericon />
+                                Registro
+                            </a>
                         </li>
                     @endif
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('register') }}">
+                            <x-icons.carticon />
+                            Carrito
+                        </a>
+                    </li>
                 @else
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
@@ -42,30 +52,33 @@
                             @role('admin')
                                 {{-- User --}}
                                 <a class="dropdown-item text-white item-menu" href="{{ route('users.index') }}">
-                                    <x-icons.profileIcon/>
+                                    <x-icons.profileIcon />
                                     Usuarios
                                 </a>
                             @endrole
                             @role('admin|librarian')
                                 {{-- Product --}}
                                 <a class="dropdown-item text-white" href="{{ route('products.index') }}">
-                                    <x-icons.saveIcon/>
+                                    <x-icons.saveIcon />
                                     productos
                                 </a>
                             @endrole
                             @can('categories.index')
                                 {{-- Category --}}
                                 <a class="dropdown-item text-white" href="{{ route('categories.index') }}">
-                                  <x-icons.categoryIcon/>
+                                    <x-icons.categoryIcon />
                                     Categorias
                                 </a>
                             @endcan
 
-
+                            <a class="dropdown-item text-white" href="{{ route('categories.index') }}">
+                                <x-icons.carticon />
+                                Carrito
+                            </a>
                             {{-- Logout --}}
                             <a class="dropdown-item text-white" href="{{ route('logout') }}"
                                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                               <x-icons.exitIcon/>
+                                <x-icons.exitIcon />
                                 Cerrar sesión
                             </a>
 

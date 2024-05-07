@@ -3,12 +3,12 @@
 namespace Database\Factories;
 
 use App\Models\Product;
-use App\Models\Author;
+use App\Models\Supplier;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class AuthorFactory extends Factory
+class SupplierFactory extends Factory
 {
-    protected $model = Author::class;
+    protected $model = Supplier::class;
     public function definition()
     {
         return [
@@ -20,8 +20,8 @@ class AuthorFactory extends Factory
     //metodo de factory
     public function configure(){
         // despues de crear un autor, traerlo de la db y agregarle 8 productos a dicho autor
-        return $this->afterCreating(function (Author $author){
-            Product::factory(8)->authorId($author)->create();
+        return $this->afterCreating(function (Supplier $supplier){
+            Product::factory(8)->supplierId($supplier)->create();
         });
     }
 }

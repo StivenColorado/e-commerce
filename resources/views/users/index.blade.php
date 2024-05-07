@@ -39,11 +39,15 @@
 
                                     <th scope="row">
                                         <div class="d-flex justify-content-center">
-                                            <a href="{{ route('users.edit', ['user' => $user->id]) }}"
-                                                class="btn btn-warning btn-sm"><i class="fas fa-pencil-alt"></i></a>
+                                            <a href="{{ route('users.edit', ['user' => $user->id]) }}
+                                                "
+                                                title="Editar producto con id: {{ $user->id }} "
+                                                class="btn text-yellow btn-sm"><i class="fas fa-pencil-alt"></i></a>
 
-                                            <button class="ms-2 btn btn-danger btn-sm"
-                                                onclick="deleteForm({{ $user->id }})">
+                                            <button class="ms-2 btn text-red btn-sm"
+                                                onclick="deleteForm({{ $user->id }})"
+                                                title="Eliminar producto con id: {{ $user->id }} "
+                                                >
                                                 <i class="fas fa-trash"></i>
                                             </button>
 

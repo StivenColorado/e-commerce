@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use App\Models\Lend;
-use App\Models\Author;
+use App\Models\Supplier;
 use App\Models\Category;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
@@ -17,7 +17,7 @@ class Product extends Model
 
     protected $fillable = [
         'category_id',
-        'author_id',
+        'supplier_id',
         'title',
         'stock',
         'description',
@@ -35,16 +35,16 @@ class Product extends Model
     }
 
     /*
-		Product::with('category','author')->get();
+		Product::with('category','Supplier')->get();
 	*/
     public function category()
     {
         return $this->belongsTo(Category::class, 'category_id', 'id');
     }
 
-    public function author()
+    public function supplier()
     {
-        return $this->belongsTo(Author::class, 'author_id', 'id');
+        return $this->belongsTo(Supplier::class, 'supplier_id', 'id');
     }
 
     public function lends()

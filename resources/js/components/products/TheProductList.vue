@@ -42,7 +42,7 @@
                 style="height: 3em"
               >
                 <td>{{ product.title }}</td>
-                <td>{{ product.author.name }}</td>
+                <td>{{ product.supplier.name }}</td>
                 <td>{{ product.category.name }}</td>
                 <td>{{ product.stock }}</td>
                 <td>
@@ -73,7 +73,7 @@
       </div>
       <div>
         <product-modal
-          :authors_data="authors_data"
+          :su_data="su_data"
           :product_data="product"
           ref="product_modal"
         />
@@ -90,7 +90,7 @@ export default {
   components: {
     productModal,
   },
-  props: ["products", "authors_data"],
+  props: ["products", "su_data"],
   data() {
     return {
       modal: null,
