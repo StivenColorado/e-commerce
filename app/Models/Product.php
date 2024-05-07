@@ -20,10 +20,11 @@ class Product extends Model
         'supplier_id',
         'title',
         'stock',
+        'price',
         'description',
     ];
 
-    protected $appends = ['format_description'];
+    protected $appends = ['format_description','formatted_price'];
     public function formatDescription(): Attribute
     {
         return Attribute::make(
@@ -32,6 +33,12 @@ class Product extends Model
             },
             // set:fn ($value) => Str::upper($value)
         );
+    }
+
+
+    public function getFormattedPriceAttribute()
+    {
+        return '$' . number_format($this->price, 0, ',', '.');
     }
 
     /*
