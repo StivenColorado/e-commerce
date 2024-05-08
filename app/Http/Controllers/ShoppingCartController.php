@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ShoppingCart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 class ShoppingCartController extends Controller
@@ -18,22 +19,29 @@ class ShoppingCartController extends Controller
         return view('shopping.index', compact('cartItems'));
     }
 
+
     public function store(Request $request)
     {
-        // Validar la solicitud
-        // $request->validate([
-        //     'id_product' => 'required|exists:products,id',
-        //     'quantity' => 'required|integer|min:1',
-        // ]);
+        try {
+            DB::beginTransaction();
 
-        // // Agregar el producto al carrito del usuario actual
-        // $user = Auth::user();
-        // $shoppingCart = ShoppingCart::where('id_user', $user->id)->firstOrCreate([]);
+            // Crear una nueva instancia de ShoppingCart
+            $shoppingCart = new ShoppingCart();
+            $shoppingCart->id_user = Auth::id(); // Obtener el ID del usuario autenticado
+            $shoppingCart->product_id = $request->product_id; // Asignar el ID del producto enviado desde el formulario
+            $shoppingCart->quantity = $request->quantity; // Asignar la cantidad del producto
 
-        // // Adjuntar el producto al carrito
-        // $shoppingCart->products()->attach($request->id_product, ['quantity' => $request->quantity]);
+            // Guardar el carrito de compras
+            $shoppingCart->save();
 
-        // return redirect()->route('shopping.index')->with('success', 'Producto agregado al carrito correctamente');
+            DB::commit();
+
+            // Retornar una respuesta JSON vacía con un código de estado 200
+            return response()->json([], 200);
+        } catch (\Throwable $th) {
+            DB::rollback();
+            throw $th;
+        }
     }
 
     public function update(Request $request, $id)

@@ -32,14 +32,17 @@
                         </div>
                         {{-- botones para agregar funcionalidad --}}
                         <div class="card-footer">
-                            <form action="{{ route('shoppingCart.store', ['id_product' => $product->id]) }}" class="d-grid gap-2" method="POST">
+                            <form action="{{ route('shoppingCart.store', ['product_id' => $product->id]) }}"
+                                class="d-grid gap-2" method="POST">
                                 @csrf
                                 <input type="hidden" name="quantity" value="1">
+                                <input type="hidden" name="id_user" value="{{ Auth::id() }}">
                                 <button class="btn btn-outline-success" type="submit">
                                     <x-icons.carticon />
                                     Agregar al carrito
                                 </button>
                             </form>
+
                             <div class="d-grid gap-2 mt-2">
                                 <button class="btn btn-outline-warning" type="button">
                                     <x-icons.carticon />
