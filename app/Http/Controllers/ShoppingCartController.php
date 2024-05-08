@@ -7,6 +7,7 @@ use App\Models\ShoppingCart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class ShoppingCartController extends Controller
 {
@@ -38,35 +39,38 @@ class ShoppingCartController extends Controller
             }
         }
 
-        if (request()->ajax()) {// si la peticion es ajax
+        if (request()->ajax()) { // si la peticion es ajax
             return response()->json($combinedData);
         }
         return view('shopping.index', compact('combinedData'));
     }
 
     public function store(Request $request)
-    {
-        try {
-            DB::beginTransaction();
+{
+    try {
+        DB::beginTransaction();
 
-            // Crear una nueva instancia de ShoppingCart
-            $shoppingCart = new ShoppingCart();
-            $shoppingCart->id_user = Auth::id(); // Obtener el ID del usuario autenticado
-            $shoppingCart->product_id = $request->product_id; // Asignar el ID del producto enviado desde el formulario
-            $shoppingCart->quantity = $request->quantity; // Asignar la cantidad del producto
+        // Crear una nueva instancia de ShoppingCart
+        $shoppingCart = new ShoppingCart();
+        $shoppingCart->id_user = Auth::id(); // Obtener el ID del usuario autenticado
+        $shoppingCart->product_id = $request->product_id; // Asignar el ID del producto enviado desde el formulario
+        $shoppingCart->quantity = $request->quantity; // Asignar la cantidad del producto
 
-            // Guardar el carrito de compras
-            $shoppingCart->save();
+        // Guardar el carrito de compras
+        $shoppingCart->save();
 
-            DB::commit();
+        DB::commit();
 
-            // Retornar una respuesta JSON vacía con un código de estado 200
-            return response()->json([], 200);
-        } catch (\Throwable $th) {
-            DB::rollback();
-            throw $th;
-        }
+        // Establecer un mensaje de éxito
+        Session::flash('success', 'El producto se agregó al carrito correctamente.');
+
+        // Redirigir a la página de carrito de compras
+        return redirect()->route('shoppingCart.index');
+    } catch (\Throwable $th) {
+        DB::rollback();
+        throw $th;
     }
+}
 
     public function update(Request $request, $id)
     {

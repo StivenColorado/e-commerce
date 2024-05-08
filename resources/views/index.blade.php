@@ -31,6 +31,11 @@
                             </div>
                         </div>
                         {{-- botones para agregar funcionalidad --}}
+                        @if (Session::has('success'))
+                            <div class="alert alert-success">
+                                {{ Session::get('success') }}
+                            </div>
+                        @endif
                         <div class="card-footer">
                             <form action="{{ route('shoppingCart.store', ['product_id' => $product->id]) }}"
                                 class="d-grid gap-2" method="POST">
