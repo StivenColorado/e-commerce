@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use App\Models\ShoppingCart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -11,14 +12,37 @@ class ShoppingCartController extends Controller
 {
     public function index()
     {
-        // Aquí podrías obtener los productos en el carrito del usuario actual
         $user = Auth::user();
-        $cartItems = $user->shoppingCarts()->with('product')->get();
-        // dd($user->toArray());
-        // dd($user);
-        return view('shopping.index', compact('cartItems'));
-    }
 
+        // Obtener todos los registros de shopping_carts asociados al usuario actual
+        $cartItems = ShoppingCart::where('id_user', $user->id)->get();
+
+        $productIds = $cartItems->pluck('product_id')->unique()->toArray();
+
+        // Obtener los detalles de los productos correspondientes
+        $products = Product::whereIn('id', $productIds)->get()->keyBy('id');
+
+        $combinedData = [];
+        foreach ($cartItems as $cartItem) {
+            $productId = $cartItem->product_id;
+            $product = $products->get($productId);
+
+            if ($product) {
+                $combinedData[] = [
+                    'id' => $cartItem->id,
+                    'id_user' => $cartItem->id_user,
+                    'product_id' => $productId,
+                    'quantity' => $cartItem->quantity,
+                    'product' => $product->toArray(),
+                ];
+            }
+        }
+
+        if (request()->ajax()) {// si la peticion es ajax
+            return response()->json($combinedData);
+        }
+        return view('shopping.index', compact('combinedData'));
+    }
 
     public function store(Request $request)
     {

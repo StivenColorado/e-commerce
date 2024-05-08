@@ -31,26 +31,10 @@
 </template>
 
 <script>
-import axios from 'axios';
-
 export default {
-    data() {
-        return {
-            cartItems: []
-        };
-    },
-    mounted() {
-        this.fetchCartItems();
-    },
+    props: ['cartItems'], // Define la prop cartItems
     methods: {
-        async fetchCartItems() {
-            try {
-                const response = await axios.get('/shoppingCart');
-                this.cartItems = response.data;
-            } catch (error) {
-                console.error('Error al obtener datos del carrito:', error);
-            }
-        },
+        // Aquí van los métodos de tu componente
         updateQuantity(item) {
             // Lógica para actualizar la cantidad de un item en el carrito
             // Puedes hacer una petición PUT a una ruta de actualización en el servidor

@@ -14,7 +14,7 @@ class ShoppingCart extends Model
         'quantity',
     ];
 
-    public function products()
+    public function product()
     {
         return $this->belongsTo(Product::class, 'id_product', 'id');
     }
