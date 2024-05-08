@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Models\Lend;
 use App\Models\Supplier;
 use App\Models\Category;
 use Illuminate\Support\Str;
@@ -40,6 +39,10 @@ class Product extends Model
         return '$' . number_format($this->price, 0, ',', '.');
     }
 
+    public function getDiscountAttribute(){
+        return $this->price + rand(20000,100000);
+    }
+
     public function category()
     {
         return $this->belongsTo(Category::class, 'category_id', 'id');
@@ -50,10 +53,7 @@ class Product extends Model
         return $this->belongsTo(Supplier::class, 'supplier_id', 'id');
     }
 
-    public function lends()
-    {
-        return $this->hasMany(Lend::class, 'product_id', 'id');
-    }
+
     public function shoppingCarts()
     {
         return $this->hasMany(ShoppingCart::class, 'id_product', 'id');

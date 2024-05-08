@@ -54,16 +54,10 @@ class User extends Authenticatable
         $this->attributes['remember_token'] = Str::random(30);
     }
     //relacionamiento de llaves foreaneas a lends
-    public function customerLends()
-    {
-        return $this->hasMany(Lend::class, 'customer_user_id', 'id');
-    }
-    public function ownerLends()
-    {
-        return $this->hasMany(Lend::class, 'owner_user_id', 'id');
-    }
+
     public function shoppingCarts()
     {
         return $this->hasMany(ShoppingCart::class, 'id_user', 'id');
     }
+
 }

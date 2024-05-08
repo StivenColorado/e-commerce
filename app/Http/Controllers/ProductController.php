@@ -13,8 +13,7 @@ use App\Http\Requests\Product\ProductUpdateRequest;
 class ProductController extends Controller
 {
     use UploadFile;
-
-
+    //TODO repasar
     public function home()
     {
         //traer categorias con productos
@@ -36,7 +35,6 @@ class ProductController extends Controller
         }
         return view('index', compact('productsByCategory'));
     }
-
 
     public function index()
     {
