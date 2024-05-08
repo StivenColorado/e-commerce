@@ -17,24 +17,23 @@ class ProductController extends Controller
 
     public function home()
     {
-        // Obtener todas las categorías
-        $categories = Category::all();
-
-        // almacenar los productos por categoría
+        //traer categorias con productos
+        $categories = Category::whereHas('products', function ($query) {
+            $query->where('stock', '>', 0);
+        })->get();
         $productsByCategory = [];
-
-        // Obtener hasta 5 productos para cada categoría
+        // Obtener 5 productos por catergoria
         foreach ($categories as $category) {
             $products = Product::with('supplier', 'file')
-                        ->where('category_id', $category->id)
-                        ->where('stock', '>', 0)
-                        ->limit(5)
-                        ->get();
-
-            // matriz de productos por categoría
-            $productsByCategory[$category->name] = $products;
+                ->where('category_id', $category->id)
+                ->where('stock', '>', 0)
+                ->limit(5)
+                ->get();
+            // Verificar si la categoría tiene productos
+            if ($products->count() > 0) {
+                $productsByCategory[$category->name] = $products;
+            }
         }
-
         return view('index', compact('productsByCategory'));
     }
 
