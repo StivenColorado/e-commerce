@@ -2,7 +2,7 @@
     <div class="container">
 
         <a class="navbar-brand" href="{{ url('/') }}">{{ env('APP_NAME') }}</a>
-        <form class="d-flex" role="search" class="bg-input">
+        <form action="{{route('home')}}" class="d-flex" role="search" class="bg-input">
             <input class="form-control text-white bg-input me-2" style="background:rgb(58, 58, 58);" type="search"
                 placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success" type="submit">
@@ -43,7 +43,7 @@
                         </li>
                     @endif
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('shopping.index') }}">
+                        <a class="nav-link" href="{{ route('shoppingCart.index') }}">
                             <x-icons.carticon />
                             Carrito
                         </a>
@@ -92,7 +92,7 @@
 
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('shopping.index') }}">
+                        <a class="nav-link" href="{{ route('shoppingCart.index') }}">
                             <x-icons.carticon />
                             Carrito
                         </a>

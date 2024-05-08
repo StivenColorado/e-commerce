@@ -14,23 +14,26 @@ class ShoppingCartController extends Controller
         $user = Auth::user();
         $cartItems = $user->shoppingCarts()->with('product')->get();
         // dd($user->toArray());
-        dd($user);
+        // dd($user);
         return view('shopping.index', compact('cartItems'));
     }
 
     public function store(Request $request)
     {
         // Validar la solicitud
-        $request->validate([
-            'product_id' => 'required|exists:products,id',
-            'quantity' => 'required|integer|min:1',
-        ]);
+        // $request->validate([
+        //     'id_product' => 'required|exists:products,id',
+        //     'quantity' => 'required|integer|min:1',
+        // ]);
 
-        // Agregar el producto al carrito del usuario actual
-        $user = Auth::user();
-        $user->shoppingCarts()->attach($request->product_id, ['quantity' => $request->quantity]);
+        // // Agregar el producto al carrito del usuario actual
+        // $user = Auth::user();
+        // $shoppingCart = ShoppingCart::where('id_user', $user->id)->firstOrCreate([]);
 
-        return redirect()->route('shopping.index')->with('success', 'Producto agregado al carrito correctamente');
+        // // Adjuntar el producto al carrito
+        // $shoppingCart->products()->attach($request->id_product, ['quantity' => $request->quantity]);
+
+        // return redirect()->route('shopping.index')->with('success', 'Producto agregado al carrito correctamente');
     }
 
     public function update(Request $request, $id)
