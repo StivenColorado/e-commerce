@@ -2,7 +2,7 @@
     <section class="my-3 d-flex justify-content-center">
         <h1>Listado de productos</h1>
     </section>
-
+    {{-- {{ dd($productsByCategory) }} --}}
     @foreach ($productsByCategory as $categoryName => $products)
         <section class="my-3">
             <h2 class="w-50 text-start" style="position:relative;left:10%;">{{ $categoryName }}</h2>
@@ -10,7 +10,7 @@
                 @foreach ($products as $product)
                     <a href="{{ route('show.index', ['id' => $product->id]) }}"
                         class="text-decoration-none card card_size hover-card bg-table text-white z-10 m-1">
-                    {{-- <a class="text-decoration-none card card_size hover-card bg-table text-white z-10 m-1"> --}}
+                        {{-- <a class="text-decoration-none card card_size hover-card bg-table text-white z-10 m-1"> --}}
                         <img src="{{ $product->file->route }}" class="card-img-top position-relative w-100"
                             alt="Portada producto">
 
@@ -22,7 +22,6 @@
                             {{-- <p class="card-text">{{ $product->format_description }}</p> --}}
                             <div class="d-flex flex-wrap">
                                 <span class="w-100">
-                                    <strong>Proveedor: </strong> {{ $product->suppliers->name }}
                                 </span>
                                 <span class="mt-2">
                                     <strong>Categoria: </strong> {{ $product->category->name }}

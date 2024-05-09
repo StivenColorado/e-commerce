@@ -21,7 +21,7 @@ class ShoppingCartController extends Controller
         $productIds = $cartItems->pluck('product_id')->unique()->toArray();
 
         // Obtener los detalles de los productos correspondientes
-        $products = Product::with('suppliers','file')->whereIn('id', $productIds)->get()->keyBy('id');
+        $products = Product::with('file')->whereIn('id', $productIds)->get()->keyBy('id');
         // dd($products->toArray());
         $combinedData = [];
         foreach ($cartItems as $cartItem) {

@@ -28,7 +28,6 @@
             <thead style="height: 3em">
               <tr>
                 <th>Titulo</th>
-                <th>Proveedor</th>
                 <th>Categoria</th>
                 <th>Cantidad</th>
                 <th>Acciones</th>
@@ -42,7 +41,6 @@
                 style="height: 3em"
               >
                 <td>{{ product.title }}</td>
-                <td>{{ product.suppliers.name }}</td>
                 <td>{{ product.category.name }}</td>
                 <td>{{ product.stock }}</td>
                 <td>
@@ -73,7 +71,6 @@
       </div>
       <div>
         <product-modal
-          :suppliers_data="suppliers_data"
           :product_data="product"
           ref="product_modal"
         />
@@ -90,7 +87,7 @@ export default {
   components: {
     productModal,
   },
-  props: ["products", "suppliers_data"],
+  props: ["products"],
   data() {
     return {
       modal: null,

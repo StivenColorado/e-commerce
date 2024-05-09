@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Models\Category;
-use App\Models\Supplier;
 use App\Http\Traits\UploadFile;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\Product\ProductRequest;
@@ -23,7 +22,7 @@ class ProductController extends Controller
         $productsByCategory = [];
         // Obtener 5 productos por catergoria
         foreach ($categories as $category) {
-            $products = Product::with('suppliers', 'file')
+            $products = Product::with('file')
                 ->where('category_id', $category->id)
                 ->where('stock', '>', 0)
                 ->limit(5)
@@ -38,10 +37,8 @@ class ProductController extends Controller
 
     public function index()
     {
-        $suppliers = Supplier::get();
-        // dd($suppliers->toArray());
-        $products = Product::with('suppliers', 'category', 'file')->get();
-        return view('products.index', compact('products', 'suppliers'));
+        $products = Product::with('category', 'file')->get();
+        return view('products.index', compact('products'));
     }
 
 

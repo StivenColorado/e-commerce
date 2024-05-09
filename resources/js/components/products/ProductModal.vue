@@ -85,6 +85,26 @@
                   }}</span>
                 </Field>
               </div>
+              <!-- Prices -->
+              <div class="col-12 mt-2">
+                <Field
+                  name="price"
+                  v-slot="{ errorMessage, field }"
+                  v-model="product.price"
+                >
+                  <label for="price">Precio</label>
+                  <input
+                    type="number"
+                    id="price"
+                    v-model="product.price"
+                    :class="`form-control custom-btn-dark ${
+                      errorMessage ? 'is-invalid' : ''
+                    }`"
+                    v-bind="field"
+                  />
+                  <span class="invalid-feedback">{{ errorMessage }}</span>
+                </Field>
+              </div>
 
               <!-- Stock -->
               <div class="col-12 mt-2">
@@ -124,34 +144,6 @@
                     rows="3"
                     v-bind="field"
                   ></textarea>
-                  <span class="invalid-feedback">{{ errorMessage }}</span>
-                </Field>
-              </div>
-
-              <!-- supplier -->
-              <div class="col-12 mt-2">
-                <Field
-                  name="supplier"
-                  v-slot="{ errorMessage, field }"
-                  v-model="supplier"
-                  :class="bg-input"
-                >
-                  <label for="supplier">Proveedor</label>
-
-                  <v-select
-                    :options="suppliers_data"
-                    label="name"
-                    v-model="supplier"
-                    :reduce="(supplier) => supplier.id"
-                    v-bind="field"
-                    placeholder="Seleccione autor"
-                    :clearable="false"
-                    :class="`${
-                      errorMessage ? 'is-invalid' : ''
-                    } column.cellClass`"
-                  >
-                  </v-select>
-
                   <span class="invalid-feedback">{{ errorMessage }}</span>
                 </Field>
               </div>
@@ -209,14 +201,13 @@ import { successMessage, handlerErrors } from "../../helpers/Alerts";
 import backendError from "../Components/BackendError.vue";
 
 export default {
-  props: ["suppliers_data", "product_data"],
+  props: ["product_data"],
   components: { Field, Form, backendError },
   watch: {
     product_data(new_value) {
       this.product = { ...new_value };
       if (!this.product.id) return;
       this.is_create = false;
-      this.supplier = this.product.supplier_id;
       this.category = this.product.category_id;
       this.image_preview = this.product.file.route;
     },
@@ -226,8 +217,8 @@ export default {
       return yup.object({
         title: yup.string().required(),
         stock: yup.number().required().positive().integer(),
+        price: yup.number().required().positive(),
         description: yup.string(),
-        supplier: yup.string().required(),
         category: yup.string().required(),
       });
     },
@@ -236,7 +227,6 @@ export default {
     return {
       is_create: true,
       product: {},
-      supplier: null,
       category: null,
       categories_data: [],
       load_category: false,
@@ -260,7 +250,6 @@ export default {
     async saveproduct() {
       try {
         this.product.category_id = this.category;
-        this.product.supplier_id = this.supplier;
         const product = this.createFormData(this.product);
         if (this.is_create) await axios.post("/products/store", product);
         else await axios.post(`/products/update/${this.product.id}`, product);
@@ -274,6 +263,7 @@ export default {
     createFormData(data) {
       const form_data = new FormData();
       if (this.file) form_data.append("file", this.file, this.file.name);
+
       for (const prop in data) {
         form_data.append(prop, data[prop]);
       }
@@ -293,7 +283,6 @@ export default {
     reset() {
       this.is_create = true;
       this.product = {};
-      this.supplier = null;
       this.category = null;
       this.$parent.product = {};
       this.back_errors = {};
