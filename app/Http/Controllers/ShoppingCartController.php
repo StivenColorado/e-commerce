@@ -46,44 +46,45 @@ class ShoppingCartController extends Controller
     }
 
     public function store(Request $request)
-{
-    try {
-        DB::beginTransaction();
-
-        // Crear una nueva instancia de ShoppingCart
-        $shoppingCart = new ShoppingCart();
-        $shoppingCart->id_user = Auth::id(); // Obtener el ID del usuario autenticado
-        $shoppingCart->product_id = $request->product_id; // Asignar el ID del producto enviado desde el formulario
-        $shoppingCart->quantity = $request->quantity; // Asignar la cantidad del producto
-
-        // Guardar el carrito de compras
-        $shoppingCart->save();
-
-        DB::commit();
-
-        Session::flash('success', 'El producto se agregó al carrito correctamente.');
-
-        return redirect()->route('shoppingCart.index');
-    } catch (\Throwable $th) {
-        DB::rollback();
-        throw $th;
-    }
-}
-
-    public function update(Request $request, $id)
     {
-        // Validar la solicitud
         $request->validate([
+            'product_id' => 'required|integer',
             'quantity' => 'required|integer|min:1',
         ]);
 
-        // Actualizar la cantidad del producto en el carrito del usuario actual
-        $user = Auth::user();
-        $user->shoppingCarts()->updateExistingPivot($id, ['quantity' => $request->quantity]);
+        $productId = $request->input('product_id');
+        $userId = Auth::id();
 
-        return redirect()->route('shopping.index')->with('success', 'Cantidad de producto actualizada correctamente');
+        $product = Product::find($productId);
+
+        if (!$product) {
+            Session::flash('error', 'El producto no existe.');
+            return redirect()->route('shoppingCart.index');
+        }
+
+        $existingShoppingCart = ShoppingCart::where('id_user', $userId)
+            ->where('product_id', $productId)
+            ->first();
+
+        if ($existingShoppingCart) {
+            if ($existingShoppingCart->quantity < $product->stock) {
+                $existingShoppingCart->quantity += 1;
+                $existingShoppingCart->save();
+                Session::flash('success', 'El producto se agregó al carrito correctamente.');
+            } else {
+                Session::flash('error', 'La cantidad solicitada supera el stock disponible.');
+            }
+        } else {
+            $shoppingCart = new ShoppingCart();
+            $shoppingCart->id_user = $userId;
+            $shoppingCart->product_id = $productId;
+            $shoppingCart->quantity = $request->quantity;
+            $shoppingCart->save();
+            Session::flash('success', 'El producto se agregó al carrito correctamente.');
+        }
+
+        return redirect()->route('shoppingCart.index');
     }
-
     public function destroy($id)
     {
         // Eliminar el producto del carrito del usuario actual
