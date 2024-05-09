@@ -16,8 +16,8 @@
           </h5>
           <button
             type="button"
-            class="btn-close "
-            style="color:white"
+            class="btn-close"
+            style="color: white"
             data-bs-dismiss="modal"
             aria-label="Close"
           ></button>
@@ -134,6 +134,7 @@
                   name="supplier"
                   v-slot="{ errorMessage, field }"
                   v-model="supplier"
+                  :class="bg-input"
                 >
                   <label for="supplier">Proveedor</label>
 
@@ -266,8 +267,10 @@ export default {
         await successMessage({ reload: true });
       } catch (error) {
         this.back_errors = await handlerErrors(error);
+        console.error("Error de validación:", error.response.data); // Imprimir detalles del error de validación
       }
     },
+
     createFormData(data) {
       const form_data = new FormData();
       if (this.file) form_data.append("file", this.file, this.file.name);

@@ -23,7 +23,7 @@ class ProductController extends Controller
         $productsByCategory = [];
         // Obtener 5 productos por catergoria
         foreach ($categories as $category) {
-            $products = Product::with('supplier', 'file')
+            $products = Product::with('suppliers', 'file')
                 ->where('category_id', $category->id)
                 ->where('stock', '>', 0)
                 ->limit(5)
@@ -40,7 +40,7 @@ class ProductController extends Controller
     {
         $suppliers = Supplier::get();
         // dd($suppliers->toArray());
-        $products = Product::with('supplier', 'category', 'file')->get();
+        $products = Product::with('suppliers', 'category', 'file')->get();
         return view('products.index', compact('products', 'suppliers'));
     }
 

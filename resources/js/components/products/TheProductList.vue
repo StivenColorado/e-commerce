@@ -42,7 +42,7 @@
                 style="height: 3em"
               >
                 <td>{{ product.title }}</td>
-                <td>{{ product.supplier.name }}</td>
+                <td>{{ product.suppliers.name }}</td>
                 <td>{{ product.category.name }}</td>
                 <td>{{ product.stock }}</td>
                 <td>
