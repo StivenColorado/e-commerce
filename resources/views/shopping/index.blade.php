@@ -10,6 +10,7 @@
                     <th>Producto</th>
                     <th>Stock Disponible</th>
                     <th>Cantidad</th>
+                    <th>sub total</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -36,6 +37,9 @@
                             </form>
                         </td>
                         <td>
+                            {{ $item['subtotal'] }}
+                        </td>
+                        <td>
                             <form id="delete-form-{{ $item['id'] }}"
                                 action="{{ route('shoppingCart.destroy', ['product' => $item['id']]) }}"
                                 method="POST">
@@ -51,5 +55,9 @@
                 @endforeach
             </tbody>
         </table>
+
+        <p class="w-75 m-3 d-flex justify-content-end" style="left: 12%">
+            Total del carrito de compras: {{ $totalCart }}
+        </p>
     </div>
 </x-app>

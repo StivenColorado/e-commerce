@@ -10,8 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class ShoppingCartController extends Controller
-{
-    public function index()
+{public function index()
     {
         $user = Auth::user();
 
@@ -24,17 +23,23 @@ class ShoppingCartController extends Controller
         $products = Product::with('file')->whereIn('id', $productIds)->get()->keyBy('id');
         // dd($products->toArray());
         $combinedData = [];
+        $totalCart = 0; // Inicializar el total del carrito en 0
+
         foreach ($cartItems as $cartItem) {
             $productId = $cartItem->product_id;
             $product = $products->get($productId);
 
             if ($product) {
+                $subtotal = $cartItem->quantity * $product->price; // Calcular el subtotal del item
+                $totalCart += $subtotal; // Sumar el subtotal al total del carrito
+
                 $combinedData[] = [
                     'id' => $cartItem->id,
                     'id_user' => $cartItem->id_user,
                     'product_id' => $productId,
                     'quantity' => $cartItem->quantity,
                     'product' => $product->toArray(),
+                    'subtotal' => $subtotal, // Agregar el subtotal al array combinado
                 ];
             }
         }
@@ -42,8 +47,10 @@ class ShoppingCartController extends Controller
         if (request()->ajax()) { // si la peticion es ajax
             return response()->json($combinedData);
         }
-        return view('shopping.index', compact('combinedData'));
+
+        return view('shopping.index', compact('combinedData', 'totalCart')); // Pasar el total del carrito a la vista
     }
+
 
     public function store(Request $request)
     {
