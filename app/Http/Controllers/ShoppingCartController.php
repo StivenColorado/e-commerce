@@ -21,8 +21,8 @@ class ShoppingCartController extends Controller
         $productIds = $cartItems->pluck('product_id')->unique()->toArray();
 
         // Obtener los detalles de los productos correspondientes
-        $products = Product::whereIn('id', $productIds)->get()->keyBy('id');
-
+        $products = Product::with('supplier','file')->whereIn('id', $productIds)->get()->keyBy('id');
+        // dd($products->toArray());
         $combinedData = [];
         foreach ($cartItems as $cartItem) {
             $productId = $cartItem->product_id;
@@ -61,10 +61,8 @@ class ShoppingCartController extends Controller
 
         DB::commit();
 
-        // Establecer un mensaje de éxito
         Session::flash('success', 'El producto se agregó al carrito correctamente.');
 
-        // Redirigir a la página de carrito de compras
         return redirect()->route('shoppingCart.index');
     } catch (\Throwable $th) {
         DB::rollback();

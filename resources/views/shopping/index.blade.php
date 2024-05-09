@@ -6,6 +6,7 @@
                 <tr>
                     <th>ID</th>
                     <th>ID de Usuario</th>
+                    <th>Preview</th>
                     <th>Producto</th>
                     <th>Stock Disponible</th>
                     <th>Cantidad</th>
@@ -17,6 +18,8 @@
                     <tr>
                         <td>{{ $item['id'] }}</td>
                         <td>{{ $item['id_user'] }}</td>
+                        {{-- <td><img class="w-full h-100" src="{{ $item['product']['file']['route'] }}" alt="" srcset=""></td> --}}
+                        <td>{{ $item['product']['file']['route'] }}</td>
                         <td>{{ $item['product']['title'] }}</td>
                         <td>{{ $item['product']['stock'] }}</td>
                         <td>
