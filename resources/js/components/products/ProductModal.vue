@@ -135,7 +135,7 @@
                   v-slot="{ errorMessage, field }"
                   v-model="supplier"
                 >
-                  <label for="supplier">Autor</label>
+                  <label for="supplier">Proveedor</label>
 
                   <v-select
                     :options="suppliers_data"

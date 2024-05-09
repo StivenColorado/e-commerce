@@ -24,9 +24,9 @@
                         <td>{{ $item['product']['title'] }}</td>
                         <td>{{ $item['product']['stock'] }}</td>
                         <td>
-                            <input class="bg-input rounded" type="number" min="1" max="{{ $item['product']['stock'] }}"
+                            <input class="bg-input disbled-style rounded" type="number" min="1" max="{{ $item['product']['stock'] }}"
                                 value="{{ $item['quantity'] }}">
-                            <button class="text-green bg-input" title="Actualizar stock">
+                            <button class="text-green bg-input disbled-style" title="Actualizar stock">
                                 <x-icons.updateicon/>
                             </button>
                         </td>

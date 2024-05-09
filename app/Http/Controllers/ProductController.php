@@ -39,6 +39,7 @@ class ProductController extends Controller
     public function index()
     {
         $suppliers = Supplier::get();
+        // dd($suppliers->toArray());
         $products = Product::with('supplier', 'category', 'file')->get();
         return view('products.index', compact('products', 'suppliers'));
     }

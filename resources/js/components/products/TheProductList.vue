@@ -28,7 +28,7 @@
             <thead style="height: 3em">
               <tr>
                 <th>Titulo</th>
-                <th>Autor</th>
+                <th>Proveedor</th>
                 <th>Categoria</th>
                 <th>Cantidad</th>
                 <th>Acciones</th>
@@ -73,7 +73,7 @@
       </div>
       <div>
         <product-modal
-          :su_data="su_data"
+          :suppliers_data="suppliers_data"
           :product_data="product"
           ref="product_modal"
         />
@@ -90,7 +90,7 @@ export default {
   components: {
     productModal,
   },
-  props: ["products", "su_data"],
+  props: ["products", "suppliers_data"],
   data() {
     return {
       modal: null,

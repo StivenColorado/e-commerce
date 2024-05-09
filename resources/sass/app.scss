@@ -85,11 +85,15 @@
 .text-yellow {
   color: var(--yellow);
 }
+
+.disbled-style {
+  outline: none;
+  border: 0;
+}
+
 .bg-input {
   background-color: var(--bg-input);
   color: var(--white);
-  outline: none;
-  border:0;
   // Estilos para cuando se aplica el autocompletado en WebKit
   &:-webkit-autofill {
     -webkit-box-shadow: 0 0 0px 1000px #fff inset;

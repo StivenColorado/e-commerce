@@ -19,7 +19,7 @@ class SupplierFactory extends Factory
 
     //metodo de factory
     public function configure(){
-        // despues de crear un autor, traerlo de la db y agregarle 8 productos a dicho autor
+        // despues de crear un proveedor, traerlo de la db y agregarle 8 productos a dicho proveedor
         return $this->afterCreating(function (Supplier $supplier){
             Product::factory(8)->supplierId($supplier)->create();
         });
