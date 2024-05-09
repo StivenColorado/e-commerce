@@ -8,9 +8,9 @@
             <h2 class="w-50 text-start" style="position:relative;left:10%;">{{ $categoryName }}</h2>
             <div class="d-flex flex-wrap justify-content-center w-100">
                 @foreach ($products as $product)
-                    {{-- <a href="{{ route('show.index', ['id' => $product->id]) }}"
-                        class="text-decoration-none card card_size hover-card bg-table text-white z-10 m-1"> --}}
-                    <a class="text-decoration-none card card_size hover-card bg-table text-white z-10 m-1">
+                    <a href="{{ route('show.index', ['id' => $product->id]) }}"
+                        class="text-decoration-none card card_size hover-card bg-table text-white z-10 m-1">
+                    {{-- <a class="text-decoration-none card card_size hover-card bg-table text-white z-10 m-1"> --}}
                         <img src="{{ $product->file->route }}" class="card-img-top position-relative w-100"
                             alt="Portada producto">
 

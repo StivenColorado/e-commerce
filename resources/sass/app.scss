@@ -88,7 +88,8 @@
 .bg-input {
   background-color: var(--bg-input);
   color: var(--white);
-
+  outline: none;
+  border:0;
   // Estilos para cuando se aplica el autocompletado en WebKit
   &:-webkit-autofill {
     -webkit-box-shadow: 0 0 0px 1000px #fff inset;
@@ -108,16 +109,23 @@
   color: var(--white);
 }
 
-.hover-card{
-    &:hover{
-        background-color: var(--hover-card);
-        border:solid 1px rgb(96, 95, 95);
-        box-sizing: border-box;
-    }
+.hover-card {
+  &:hover {
+    background-color: var(--hover-card);
+    border: solid 1px rgb(96, 95, 95);
+    box-sizing: border-box;
+  }
+}
+
+// tabla personalizada carrito de compras
+#cartTable {
+  td,
+  th {
+    // text-align: center;
+  }
 }
 
 //   editando datatables de vue
-
 .vs__selected-options,
 .vs__dropdown-toggle,
 .vs__search,
