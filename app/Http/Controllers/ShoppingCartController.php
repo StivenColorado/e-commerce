@@ -85,11 +85,44 @@ class ShoppingCartController extends Controller
 
         return redirect()->route('shoppingCart.index');
     }
+
+    public function update(Request $request, $productId)
+    {
+        $product = Product::find($productId);
+
+        if (!$product) {
+            Session::flash('error', 'El producto no existe.');
+            return redirect()->route('shoppingCart.index');
+        }
+
+        $request->validate([
+            'quantity' => 'required|integer|min:1|max:' . $product->stock,
+        ]);
+
+        $shoppingCart = ShoppingCart::where('id_user', Auth::id())
+            ->where('product_id', $productId)
+            ->first();
+
+        if ($shoppingCart) {
+            if ($request->quantity <= $product->stock) {
+                $shoppingCart->quantity = $request->quantity;
+                $shoppingCart->save();
+                Session::flash('success', 'La cantidad se actualizó correctamente.');
+            } else {
+                Session::flash('error', 'La cantidad solicitada supera el stock disponible.');
+            }
+        } else {
+            Session::flash('error', 'El producto no existe en el carrito.');
+        }
+
+        return redirect()->route('shoppingCart.index');
+    }
+
     public function destroy($id)
     {
         // Eliminar el producto del carrito del usuario actual
         $user = Auth::user();
-        $user->shoppingCarts()->detach($id);
+        // $user->shoppingCarts()->detach($id);
 
         return redirect()->route('shopping.index')->with('success', 'Producto eliminado del carrito correctamente');
     }

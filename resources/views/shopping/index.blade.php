@@ -24,15 +24,21 @@
                         <td>{{ $item['product']['title'] }}</td>
                         <td>{{ $item['product']['stock'] }}</td>
                         <td>
-                            <input class="bg-input disbled-style rounded" type="number" min="1" max="{{ $item['product']['stock'] }}"
-                                value="{{ $item['quantity'] }}">
-                            <button class="text-green bg-input disbled-style" title="Actualizar stock">
-                                <x-icons.updateicon/>
-                            </button>
+                            <form action="{{ route('shoppingCart.update', ['product' => $item['product']['id']]) }}"
+                                method="POST">
+                                @csrf
+                                <input class="bg-input disbled-style rounded" type="number" min="1"
+                                    max="{{ $item['product']['stock'] }}" name="quantity"
+                                    value="{{ $item['quantity'] }}">
+                                <button class="text-green bg-input disbled-style" title="Actualizar stock">
+                                    <x-icons.updateicon />
+                                </button>
+                            </form>
                         </td>
                         <td>
-                            <button class="text-red" style="background: transparent;border:none;" title="Eliminar item del carrito">
-                                <x-icons.deleteicon/>
+                            <button class="text-red" style="background: transparent;border:none;"
+                                title="Eliminar item del carrito">
+                                <x-icons.deleteicon />
                             </button>
                         </td>
                     </tr>
