@@ -118,12 +118,19 @@ class ShoppingCartController extends Controller
         return redirect()->route('shoppingCart.index');
     }
 
-    public function destroy($id)
+    public function destroy($cartItemId)
     {
-        // Eliminar el producto del carrito del usuario actual
-        $user = Auth::user();
-        // $user->shoppingCarts()->detach($id);
+        $cartItem = ShoppingCart::find($cartItemId);
 
-        return redirect()->route('shopping.index')->with('success', 'Producto eliminado del carrito correctamente');
+        if (!$cartItem) {
+            Session::flash('error', 'El item del carrito no existe.');
+            return redirect()->route('shoppingCart.index');
+        }
+
+        $cartItem->delete();
+
+        Session::flash('success', 'El item del carrito se eliminó correctamente.');
+
+        return redirect()->route('shoppingCart.index');
     }
 }

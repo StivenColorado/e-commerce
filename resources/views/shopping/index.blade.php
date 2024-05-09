@@ -36,10 +36,16 @@
                             </form>
                         </td>
                         <td>
-                            <button class="text-red" style="background: transparent;border:none;"
-                                title="Eliminar item del carrito">
-                                <x-icons.deleteicon />
-                            </button>
+                            <form id="delete-form-{{ $item['id'] }}"
+                                action="{{ route('shoppingCart.destroy', ['product' => $item['id']]) }}"
+                                method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="text-red" style="background: transparent;border:none;"
+                                    title="Eliminar item del carrito">
+                                    <x-icons.deleteicon />
+                                </button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach
