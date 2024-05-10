@@ -27,7 +27,7 @@
   </div>
   <div>
 
-    <!-- modal crear cate -->
+    <!-- modal -->
     <div
       class="modal fade"
       id="exampleModal"

@@ -1,7 +1,6 @@
 import './bootstrap'
 import { createApp } from 'vue'
 import vSelect from 'vue-select'
-const axios = require('axios');
 
 // Components ---------------------------------------------------
 import TheProductList from './components/products/TheProductList.vue'
