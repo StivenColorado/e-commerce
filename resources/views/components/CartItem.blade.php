@@ -1,7 +1,7 @@
 <a href="{{ route('show.index', ['id' => $productId]) }}"
     class="text-decoration-none card card_size hover-card bg-table text-white z-10 m-1">
     <div>
-        <img src="{{ $image }}" class="card-img-top position-relative w-100" alt="Portada producto">
+        <img src="{{ $image }}" class="card-img-top position-relative w-100" style="height: 30vh;object-fit: cover" alt="Portada producto">
 
         <div class="card-body">
             <span class="mt-2 w-100 fs-3">
