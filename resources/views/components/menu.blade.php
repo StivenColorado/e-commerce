@@ -94,6 +94,8 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('shoppingCart.index') }}">
                             <x-icons.carticon />
+                            <span id="amount-item-card"></span>
+                            {{-- <span class="badge bg-danger">{{ $amountItemCard }}</span> --}}
                             Carrito
                         </a>
                     </li>
@@ -101,4 +103,24 @@
             </ul>
         </div>
     </div>
+
+    <x-slot:scripts>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const getAmountItemCard = async () => {
+                    try {
+                        const response = await axios.get('/cart/amount');
+                        const amountItemCard = response.data.amountItemCard;
+                        if (amountItemCard > 0) {
+                            document.getElementById('amount-item-card').innerText = amountItemCard;
+                        }
+                    } catch (error) {
+                        console.error(error);
+                    }
+                };
+
+                getAmountItemCard();
+            });
+        </script>
+    </x-slot:scripts>
 </nav>

@@ -21,6 +21,7 @@
     {{-- Menu --}}
     <x-menu />
 
+
     {{-- Content --}}
     <main id="app">
         <div class="container mt-4">
@@ -31,6 +32,7 @@
     </main>
 
     {{ $scripts ?? '' }}
+
 </body>
 
 </html>

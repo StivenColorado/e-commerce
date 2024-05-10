@@ -19,6 +19,7 @@ Route::get('buscar/resultados', [SearchController::class, 'search'])->name('sear
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::get('cart/amount', [HomeController::class, 'getAmountItemCard'])->name('cart.amount');
     // Users
     Route::group(['prefix' => 'users', 'middleware' => ['role:admin'], 'controller' => UserController::class], function () {
         Route::get('/', 'index')->name('users.index')->middleware('can:users.index');
