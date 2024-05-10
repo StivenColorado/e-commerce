@@ -10,6 +10,18 @@ use Illuminate\Support\Facades\File as FileSystem;
 
 trait UploadFile
 {
+    // private function uploadFile($model, $request)
+    // {
+    //     if (!isset($request->file)) return;
+    //     $random = Str::random(20);
+    //     $path = $this->getRoute($model);
+    //     $this->deleteFile($model);
+    //     $imageName = "{$random}.{$request->file->clientExtension()}";
+    //     $request->file->move(storage_path("app/public/{$path}"), $imageName);
+    //     $file = new File(['route' => "/storage/{$path}/{$imageName}"]);
+    //     $model->file()->save($file);
+    // }
+
     private function uploadFile($model, $request)
     {
         if (!isset($request->file)) return;
@@ -17,11 +29,10 @@ trait UploadFile
         $path = $this->getRoute($model);
         $this->deleteFile($model);
         $imageName = "{$random}.{$request->file->clientExtension()}";
-        $request->file->move(storage_path("app/public/{$path}"), $imageName);
-        $file = new File(['route' => "/storage/{$path}/{$imageName}"]);
+        $request->file->move(public_path("storage/images/{$path}"), $imageName);
+        $file = new File(['route' => "/storage/images/{$path}/{$imageName}"]);
         $model->file()->save($file);
     }
-
     private function deleteFile($model)
     {
         $file = File::where('fileable_id', $model->id)

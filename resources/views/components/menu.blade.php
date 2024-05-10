@@ -2,9 +2,9 @@
     <div class="container">
 
         <a class="navbar-brand" href="{{ url('/') }}">{{ env('APP_NAME') }}</a>
-        <form action="{{route('home')}}" class="d-flex" role="search" class="bg-input">
+        <form action="{{ route('search.results') }}" method="GET" class="d-flex" role="search" class="bg-input">
             <input class="form-control text-white bg-input me-2" style="background:rgb(58, 58, 58);" type="search"
-                placeholder="Search" aria-label="Search">
+                placeholder="Search" aria-label="Search" name="query">
             <button class="btn btn-outline-success" type="submit">
                 <x-icons.searchicon />
             </button>
@@ -94,6 +94,8 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('shoppingCart.index') }}">
                             <x-icons.carticon />
+                            <span id="amount-item-card"></span>
+                            {{-- <span class="badge bg-danger">{{ $amountItemCard }}</span> --}}
                             Carrito
                         </a>
                     </li>
@@ -101,4 +103,24 @@
             </ul>
         </div>
     </div>
+
+    <x-slot:scripts>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const getAmountItemCard = async () => {
+                    try {
+                        const response = await axios.get('/cart/amount');
+                        const amountItemCard = response.data.amountItemCard;
+                        if (amountItemCard > 0) {
+                            document.getElementById('amount-item-card').innerText = amountItemCard;
+                        }
+                    } catch (error) {
+                        console.error(error);
+                    }
+                };
+
+                getAmountItemCard();
+            });
+        </script>
+    </x-slot:scripts>
 </nav>

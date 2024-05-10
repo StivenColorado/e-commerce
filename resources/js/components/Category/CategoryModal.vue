@@ -1,3 +1,4 @@
+<!-- CategoryModal.vue -->
 <template>
     <div class="modal" tabindex="-1" role="dialog" :class="{ show: isShown }">
       <div class="modal-dialog" role="document">
@@ -26,52 +27,53 @@
   </template>
 
   <script>
-  import { ref, watch } from 'vue';
+  import { ref, watch, computed } from "vue";
 
   export default {
     props: {
       category: {
         type: Object,
-        default: null
-      }
+        default: null,
+      },
+      isShown: {
+        type: Boolean,
+        default: false,
+      },
     },
     setup(props, { emit }) {
-      const isShown = ref(false);
-      const categoryData = ref({ name: '' });
+      const categoryData = ref({ name: "" });
 
       watch(
         () => props.category,
         (newValue) => {
           if (newValue) {
             categoryData.value = { ...newValue };
-            isShown.value = true;
           } else {
-            categoryData.value = { name: '' };
+            categoryData.value = { name: "" };
           }
         },
         { immediate: true }
       );
 
-      const isCreate = props.category === null;
+      const isCreate = computed(() => props.category === null);
 
       const closeModal = () => {
-        isShown.value = false;
-        emit('close-modal');
+        emit("close-modal");
       };
 
       const saveCategory = () => {
         // Aquí puedes agregar la lógica para guardar la categoría
-        console.log('Guardar categoría:', categoryData.value);
+        console.log("Guardar categoría:", categoryData.value);
+        emit("save-category", categoryData.value);
         closeModal();
       };
 
       return {
-        isShown,
         categoryData,
         isCreate,
         closeModal,
-        saveCategory
+        saveCategory,
       };
-    }
+    },
   };
   </script>

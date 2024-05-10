@@ -85,10 +85,30 @@
 .text-yellow {
   color: var(--yellow);
 }
+
+.countCartItem {
+    z-index: 1;
+    // transform: translateY(-15px);
+    transform: translate(-10px, -15px);
+    position: absolute;
+    background-color: #008000;
+    font-weight: bold;
+    font-size: 1em;
+    clip-path: circle();
+    width: 15px;
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.disbled-style {
+  outline: none;
+  border: 0;
+}
+
 .bg-input {
   background-color: var(--bg-input);
   color: var(--white);
-
   // Estilos para cuando se aplica el autocompletado en WebKit
   &:-webkit-autofill {
     -webkit-box-shadow: 0 0 0px 1000px #fff inset;
@@ -108,16 +128,23 @@
   color: var(--white);
 }
 
-.hover-card{
-    &:hover{
-        background-color: var(--hover-card);
-        border:solid 1px rgb(96, 95, 95);
-        box-sizing: border-box;
-    }
+.hover-card {
+  &:hover {
+    background-color: var(--hover-card);
+    border: solid 1px rgb(96, 95, 95);
+    box-sizing: border-box;
+  }
+}
+
+// tabla personalizada carrito de compras
+#cartTable {
+  td,
+  th {
+    // text-align: center;
+  }
 }
 
 //   editando datatables de vue
-
 .vs__selected-options,
 .vs__dropdown-toggle,
 .vs__search,

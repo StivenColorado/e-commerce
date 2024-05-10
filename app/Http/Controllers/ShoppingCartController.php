@@ -10,8 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class ShoppingCartController extends Controller
-{
-    public function index()
+{public function index()
     {
         $user = Auth::user();
 
@@ -21,20 +20,26 @@ class ShoppingCartController extends Controller
         $productIds = $cartItems->pluck('product_id')->unique()->toArray();
 
         // Obtener los detalles de los productos correspondientes
-        $products = Product::whereIn('id', $productIds)->get()->keyBy('id');
-
+        $products = Product::with('file')->whereIn('id', $productIds)->get()->keyBy('id');
+        // dd($products->toArray());
         $combinedData = [];
+        $totalCart = 0; // Inicializar el total del carrito en 0
+
         foreach ($cartItems as $cartItem) {
             $productId = $cartItem->product_id;
             $product = $products->get($productId);
 
             if ($product) {
+                $subtotal = $cartItem->quantity * $product->price; // Calcular el subtotal del item
+                $totalCart += $subtotal; // Sumar el subtotal al total del carrito
+
                 $combinedData[] = [
                     'id' => $cartItem->id,
                     'id_user' => $cartItem->id_user,
                     'product_id' => $productId,
                     'quantity' => $cartItem->quantity,
                     'product' => $product->toArray(),
+                    'subtotal' => $subtotal, // Agregar el subtotal al array combinado
                 ];
             }
         }
@@ -42,56 +47,97 @@ class ShoppingCartController extends Controller
         if (request()->ajax()) { // si la peticion es ajax
             return response()->json($combinedData);
         }
-        return view('shopping.index', compact('combinedData'));
+
+        return view('shopping.index', compact('combinedData', 'totalCart')); // Pasar el total del carrito a la vista
     }
+
 
     public function store(Request $request)
-{
-    try {
-        DB::beginTransaction();
-
-        // Crear una nueva instancia de ShoppingCart
-        $shoppingCart = new ShoppingCart();
-        $shoppingCart->id_user = Auth::id(); // Obtener el ID del usuario autenticado
-        $shoppingCart->product_id = $request->product_id; // Asignar el ID del producto enviado desde el formulario
-        $shoppingCart->quantity = $request->quantity; // Asignar la cantidad del producto
-
-        // Guardar el carrito de compras
-        $shoppingCart->save();
-
-        DB::commit();
-
-        // Establecer un mensaje de éxito
-        Session::flash('success', 'El producto se agregó al carrito correctamente.');
-
-        // Redirigir a la página de carrito de compras
-        return redirect()->route('shoppingCart.index');
-    } catch (\Throwable $th) {
-        DB::rollback();
-        throw $th;
-    }
-}
-
-    public function update(Request $request, $id)
     {
-        // Validar la solicitud
         $request->validate([
+            'product_id' => 'required|integer',
             'quantity' => 'required|integer|min:1',
         ]);
 
-        // Actualizar la cantidad del producto en el carrito del usuario actual
-        $user = Auth::user();
-        $user->shoppingCarts()->updateExistingPivot($id, ['quantity' => $request->quantity]);
+        $productId = $request->input('product_id');
+        $userId = Auth::id();
 
-        return redirect()->route('shopping.index')->with('success', 'Cantidad de producto actualizada correctamente');
+        $product = Product::find($productId);
+
+        if (!$product) {
+            Session::flash('error', 'El producto no existe.');
+            return redirect()->route('shoppingCart.index');
+        }
+
+        $existingShoppingCart = ShoppingCart::where('id_user', $userId)
+            ->where('product_id', $productId)
+            ->first();
+
+        if ($existingShoppingCart) {
+            if ($existingShoppingCart->quantity < $product->stock) {
+                $existingShoppingCart->quantity += 1;
+                $existingShoppingCart->save();
+                Session::flash('success', 'El producto se agregó al carrito correctamente.');
+            } else {
+                Session::flash('error', 'La cantidad solicitada supera el stock disponible.');
+            }
+        } else {
+            $shoppingCart = new ShoppingCart();
+            $shoppingCart->id_user = $userId;
+            $shoppingCart->product_id = $productId;
+            $shoppingCart->quantity = $request->quantity;
+            $shoppingCart->save();
+            Session::flash('success', 'El producto se agregó al carrito correctamente.');
+        }
+
+        return redirect()->route('shoppingCart.index');
     }
 
-    public function destroy($id)
+    public function update(Request $request, $productId)
     {
-        // Eliminar el producto del carrito del usuario actual
-        $user = Auth::user();
-        $user->shoppingCarts()->detach($id);
+        $product = Product::find($productId);
 
-        return redirect()->route('shopping.index')->with('success', 'Producto eliminado del carrito correctamente');
+        if (!$product) {
+            Session::flash('error', 'El producto no existe.');
+            return redirect()->route('shoppingCart.index');
+        }
+
+        $request->validate([
+            'quantity' => 'required|integer|min:1|max:' . $product->stock,
+        ]);
+
+        $shoppingCart = ShoppingCart::where('id_user', Auth::id())
+            ->where('product_id', $productId)
+            ->first();
+
+        if ($shoppingCart) {
+            if ($request->quantity <= $product->stock) {
+                $shoppingCart->quantity = $request->quantity;
+                $shoppingCart->save();
+                Session::flash('success', 'La cantidad se actualizó correctamente.');
+            } else {
+                Session::flash('error', 'La cantidad solicitada supera el stock disponible.');
+            }
+        } else {
+            Session::flash('error', 'El producto no existe en el carrito.');
+        }
+
+        return redirect()->route('shoppingCart.index');
+    }
+
+    public function destroy($cartItemId)
+    {
+        $cartItem = ShoppingCart::find($cartItemId);
+
+        if (!$cartItem) {
+            Session::flash('error', 'El item del carrito no existe.');
+            return redirect()->route('shoppingCart.index');
+        }
+
+        $cartItem->delete();
+
+        Session::flash('success', 'El item del carrito se eliminó correctamente.');
+
+        return redirect()->route('shoppingCart.index');
     }
 }

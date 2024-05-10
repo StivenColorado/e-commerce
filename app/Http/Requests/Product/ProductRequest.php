@@ -11,7 +11,6 @@ class ProductRequest extends FormRequest
 		'title' => ['required', 'string'],
 		'description' => ['required', 'string'],
 		'stock' => ['required', 'numeric'],
-		'suppliers_id' => ['required', 'exists:Suppliers,id'],
 		'category_id' => ['required', 'exists:categories,id'],
 		'file' => ['required', 'image']
 	];
@@ -35,8 +34,6 @@ class ProductRequest extends FormRequest
 			'description.string' => 'La descripcion debe de ser valida.',
 			'stock.required' => 'La cantidad es requerida.',
 			'stock.numeric' => 'La cantidad debe de ser un numero valido.',
-			'suppliers_id.required' => 'El autor es requerido.',
-			'suppliers_id.exists' => 'El autor no existe.',
 			'category_id.required' => 'La categoria es requerida.',
 			'category_id.exists' => 'La categoria no existe.',
 			'file.required' => 'La imagen es requerida.',

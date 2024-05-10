@@ -11,6 +11,7 @@
     {{-- Title --}}
     <title>{{ env('APP_NAME') }} | {{ $title ?? 'productos' }}</title>
     <link rel="stylesheet" href={{ asset('css/main.css') }}>
+    <link rel="shortcut icon" href="{{ asset('favicon.png') }}" type="image/x-icon">
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
@@ -19,6 +20,7 @@
 
     {{-- Menu --}}
     <x-menu />
+
 
     {{-- Content --}}
     <main id="app">
@@ -30,6 +32,7 @@
     </main>
 
     {{ $scripts ?? '' }}
+
 </body>
 
 </html>

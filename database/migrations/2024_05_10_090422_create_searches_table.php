@@ -9,17 +9,15 @@ return new class extends Migration
 
     public function up()
     {
-        Schema::create('suppliers', function (Blueprint $table) {
+        Schema::create('searches', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->text('biography')->nullable();
+            $table->string('search_query');
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
     public function down()
     {
-        Schema::dropIfExists('suppliers');
+        Schema::dropIfExists('searches');
     }
 };

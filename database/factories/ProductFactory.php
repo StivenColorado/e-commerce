@@ -10,14 +10,6 @@ class ProductFactory extends Factory
 {
     protected $model = Product::class;
 
-    public function supplierId($supplier)
-    {
-        return $this->state(
-            [
-                'supplier_id' => $supplier->id
-            ]
-        );
-    }
     public function definition()
     {
         $price = $this->faker->numberBetween($min = 25000, $max = 1000000);

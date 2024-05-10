@@ -1,5 +1,5 @@
 por categoría en el home solo se mostraran 5 productos, --------------------------------
-si una categoría no tiene productos no mostrar las categorías 
+si una categoría no tiene productos no mostrar las categorías
 
 debe de haber una pagina que muestren todos los productos
 
@@ -16,7 +16,7 @@ CRUD PRODUCTOS (imganes, nombres, descripción, precios, stock) ----------------
 
 ---RETO (obligatorio)
 debe de haber un carrito de compras ------------------------ Falta implementear logica
-resumen de compra (total) 
+resumen de compra (total)
 -el carrito es único para cada cliente
 
 
