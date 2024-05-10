@@ -2,9 +2,9 @@
     <div class="container">
 
         <a class="navbar-brand" href="{{ url('/') }}">{{ env('APP_NAME') }}</a>
-        <form action="{{route('home')}}" class="d-flex" role="search" class="bg-input">
+        <form action="{{ route('search.results') }}" method="GET" class="d-flex" role="search" class="bg-input">
             <input class="form-control text-white bg-input me-2" style="background:rgb(58, 58, 58);" type="search"
-                placeholder="Search" aria-label="Search">
+                placeholder="Search" aria-label="Search" name="query">
             <button class="btn btn-outline-success" type="submit">
                 <x-icons.searchicon />
             </button>

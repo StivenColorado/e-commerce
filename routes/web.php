@@ -6,12 +6,16 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ShowController;
 use App\Http\Controllers\ShoppingCartController;
 
 Auth::routes();
 Route::get('/', [ProductController::class, 'home'])->name('products.home');
 Route::get('/show/{id}', [ShowController::class, 'index'])->name('show.index');
+
+Route::get('buscar', [SearchController::class, 'index'])->name('search.index');
+Route::get('buscar/resultados', [SearchController::class, 'search'])->name('search.results');
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
@@ -52,7 +56,6 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/show/{product}', 'show')->name('shoppingCart.show');
         Route::post('/store', [ShoppingCartController::class, 'store'])->name('shoppingCart.store');
         Route::post('/update/{product}', 'update')->name('shoppingCart.update');
-        // Route::put('/{product}', 'update')->name('shoppingCart.update');
         Route::delete('/{product}', 'destroy')->name('shoppingCart.destroy');
     });
 });

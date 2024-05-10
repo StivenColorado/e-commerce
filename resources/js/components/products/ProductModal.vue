@@ -251,6 +251,19 @@ export default {
       try {
         this.product.category_id = this.category;
         const product = this.createFormData(this.product);
+
+        // validacion de imagen
+        if (!this.file) {
+          const fileInput = document.getElementById("file");
+          const previewImageBlob = await (
+            await fetch(this.image_preview)
+          ).blob();
+          const previewImageFile = new File([previewImageBlob], "preview.jpg", {
+            type: previewImageBlob.type,
+          });
+          product.append("file", previewImageFile);
+        }
+
         if (this.is_create) await axios.post("/products/store", product);
         else await axios.post(`/products/update/${this.product.id}`, product);
         await successMessage({ reload: true });

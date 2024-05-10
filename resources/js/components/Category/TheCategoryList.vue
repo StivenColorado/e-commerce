@@ -26,7 +26,8 @@
     </div>
   </div>
   <div>
-    <!-- modal -->
+
+    <!-- modal crear cate -->
     <div
       class="modal fade"
       id="exampleModal"
@@ -35,7 +36,7 @@
       aria-hidden="true"
     >
       <div class="modal-dialog">
-        <div class="modal-content bg-dark text-white">
+        <div class="modal-content bg-input text-white">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Crear categoría</h5>
             <button
@@ -53,8 +54,9 @@
                 >
                 <input
                   type="text"
-                  class="form-control bg-dark text-white"
+                  class="form-control bg-input text-white"
                   v-model="newCategory.name"
+                  placeholder="escribe el nombre"
                   id="name"
                 />
                 <div
@@ -72,7 +74,7 @@
                 >
                   Cerrar
                 </button>
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" class="btn btn-custom">
                   Crear categoría
                 </button>
               </div>
@@ -124,7 +126,7 @@ export default {
         newCategory.value.name = "";
         errors.value = null;
         // Cerrar el modal después de la creación exitosa
-        // window.location.reload();
+        window.location.reload();
         $("#exampleModal").modal("hide");
 
       } catch (error) {

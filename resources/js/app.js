@@ -7,11 +7,13 @@ import TheProductList from './components/products/TheProductList.vue'
 import TheCategoryList from './components/Category/TheCategoryList.vue'
 import BackendError from './components/Components/BackendError.vue'
 import TheShoppingCart from './components/shopping/TheShoppingCart.vue'
+import CategoryModal from './components/Category/CategoryModal.vue'
 
 const app = createApp({
 	components: {
 		TheProductList,
 		TheCategoryList,
+		CategoryModal,
         TheShoppingCart
 	}
 })

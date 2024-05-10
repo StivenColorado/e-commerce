@@ -13,13 +13,17 @@
                     <p class="lead">
                         {{ $product->description }}
                     </p>
-                    <div class="d-flex">
-                        <input type="number" class="form-control text-center me-3" id="inputQuantity" min="1" max="{{ $product->stock }}" type="num" value="1" style="max-width: 3rem" />
-                        <button class="btn btn-custom flex-shrink-0" type="button">
-                            <i class="bi-cart-fill me-1"></i>
-                            Add to cart
+
+                    <form action="{{ route('shoppingCart.store', ['product_id' => $product->id]) }}"
+                        class="d-grid gap-2" method="POST">
+                        @csrf
+                        <input type="hidden" name="quantity" value="1">
+                        <input type="hidden" name="id_user" value="{{ Auth::id() }}">
+                        <button class="btn btn-outline-success" type="submit">
+                            <x-icons.carticon />
+                            Agregar al carrito
                         </button>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
