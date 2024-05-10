@@ -15,7 +15,9 @@
                 <span class="mt-2">
                     <strong>Categoria: </strong> {{ $categoryName }}
                 </span>
-
+                <span class="mt-2">
+                    <strong>Disponible: </strong> {{ $stock }}
+                </span>
             </div>
         </div>
         {{-- botones para agregar funcionalidad --}}

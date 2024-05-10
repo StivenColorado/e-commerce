@@ -9,7 +9,7 @@
             <div class="d-flex flex-wrap justify-content-center w-100">
                 @foreach ($products as $product)
                     <x-cartitem :image="$product->file->route" :formattedPrice="$product->formatted_price" :title="$product->title" :categoryName="$product->category->name"
-                        :productId="$product->id" />
+                        :productId="$product->id" :stock="$product->stock" />
                 @endforeach
             </div>
         </section>
