@@ -23,6 +23,7 @@
 :root {
   --white: white;
   --red: red;
+  --orange: orange;
   --yellow: yellow;
   --black: black;
   --green: green;
@@ -79,6 +80,12 @@
 .text-red {
   color: var(--red);
 }
+.text-orange {
+  color: var(--orange);
+}
+.text-green-ligth {
+  color: var(--green-btn);
+}
 .text-green {
   color: var(--green);
 }
@@ -87,19 +94,19 @@
 }
 
 .countCartItem {
-    z-index: 1;
-    // transform: translateY(-15px);
-    transform: translate(-10px, -15px);
-    position: absolute;
-    background-color: #008000;
-    font-weight: bold;
-    font-size: 1em;
-    clip-path: circle();
-    width: 15px;
-    height: 5vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  z-index: 1;
+  // transform: translateY(-15px);
+  transform: translate(-10px, -15px);
+  position: absolute;
+  background-color: #008000;
+  font-weight: bold;
+  font-size: 1em;
+  clip-path: circle();
+  width: 15px;
+  height: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .disbled-style {
   outline: none;

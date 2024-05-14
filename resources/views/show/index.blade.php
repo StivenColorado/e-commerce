@@ -13,6 +13,11 @@
                     <p class="lead">
                         {{ $product->description }}
                     </p>
+                    <p class="lead">
+                        <p class="{{ $product->stock > 3 ? 'text-green-ligth' : 'text-orange' }}">
+                            Disponibles: {{ $product->stock }}
+                        </p>
+                    </p>
 
                     <form action="{{ route('shoppingCart.store', ['product_id' => $product->id]) }}"
                         class="d-grid gap-2" method="POST">

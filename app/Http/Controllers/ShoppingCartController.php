@@ -14,7 +14,7 @@ class ShoppingCartController extends Controller
     {
         $user = Auth::user();
 
-        // Obtener todos los registros de shopping_carts asociados al usuario actual
+        // todos los registros de shopping_carts asociados al usuario actual
         $cartItems = ShoppingCart::where('id_user', $user->id)->get();
 
         $productIds = $cartItems->pluck('product_id')->unique()->toArray();
@@ -30,8 +30,8 @@ class ShoppingCartController extends Controller
             $product = $products->get($productId);
 
             if ($product) {
-                $subtotal = $cartItem->quantity * $product->price; // Calcular el subtotal del item
-                $totalCart += $subtotal; // Sumar el subtotal al total del carrito
+                $subtotal = $cartItem->quantity * $product->price;
+                $totalCart += $subtotal;
 
                 $combinedData[] = [
                     'id' => $cartItem->id,
@@ -39,7 +39,7 @@ class ShoppingCartController extends Controller
                     'product_id' => $productId,
                     'quantity' => $cartItem->quantity,
                     'product' => $product->toArray(),
-                    'subtotal' => $subtotal, // Agregar el subtotal al array combinado
+                    'subtotal' => $subtotal,
                 ];
             }
         }

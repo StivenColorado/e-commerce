@@ -54,7 +54,7 @@
                 >
                 <input
                   type="text"
-                  class="form-control bg-input text-white"
+                  class="form-control bg-input"
                   v-model="newCategory.name"
                   placeholder="escribe el nombre"
                   id="name"
