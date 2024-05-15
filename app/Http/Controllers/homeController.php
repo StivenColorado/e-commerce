@@ -14,17 +14,16 @@ class HomeController extends Controller
         /** @var User $user */
         $user = Auth::user();
         if ($user->hasRole('admin')) return redirect('users');
-
-        $cart = ShoppingCart::where('user_id', $user->id)->first();
+        $cart = ShoppingCart::where('id_user', $user->id)->first();
         $amountItemCard = $cart ? $cart->items->count() : 0;
 
-        return view('welcome', compact('amountItemCard'));
+        return view('home', compact('amountItemCard'));
     }
 
     public function getAmountItemCard()
     {
         $user = Auth::user();
-        $cart = ShoppingCart::where('user_id', $user->id)->first();
+        $cart = ShoppingCart::where('id_user', $user->id)->first();
         $amountItemCard = $cart ? $cart->items->count() : 0;
 
         return response()->json(['amountItemCard' => $amountItemCard]);
